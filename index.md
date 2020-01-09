@@ -12,3 +12,6 @@
 [periodesystemet.txt](datasett/periodesystemet.txt)
 
 [iris.csv](datasett/iris.csv)
+
+### Genererte nettsider
+[Middagsplan](mat.md)
