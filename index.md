@@ -14,4 +14,4 @@
 [iris.csv](datasett/iris.csv)
 
 ### Genererte nettsider
-[Middagsplan](mat.md)
+[Middagsplan](mat)
