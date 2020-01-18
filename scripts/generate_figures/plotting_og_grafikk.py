@@ -148,3 +148,65 @@ figure_begin()
 plt.bar(fag, antall)
 figure_end()
 figure_save("fagvalg")
+
+
+###
+### Hakkegraf
+###
+figure_begin()
+def f(x):
+    return x**2 - 2
+
+x = np.linspace(-3,3,5)
+y = f(x)
+
+plt.plot(x,y)
+plt.grid()
+figure_end()
+figure_save("hakkegraf")
+
+###
+### Gltgraf
+###
+figure_begin()
+def f(x):
+    return x**2 - 2
+
+x = np.linspace(-3,3,1000)
+y = f(x)
+
+plt.plot(x,y)
+plt.grid()
+figure_end()
+figure_save("glattgraf")
+
+
+### 
+### 3D-plott
+###
+
+from mpl_toolkits.mplot3d import Axes3D
+figure_begin(size=(4,2))
+# Lager et objekt som vi tegner i
+ax = plt.axes(projection='3d')
+
+def f(x, y):
+    return np.sin(np.sqrt(x**2 + y**2))
+
+# Genererer x- og y-verdier
+x = np.linspace(-5, 5, 100)
+y = np.linspace(-5, 5, 100)
+
+# Lager et nett av x- og y-verdiene
+X, Y = np.meshgrid(x, y)
+
+# Genererer funksjonsverdier gitt nettet av x og y
+Z = f(X, Y)
+
+# Plotter  overflaten i objektet vårt (ax)
+ax.plot_surface(X, Y, Z, cmap='inferno')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+#figure_end()
+figure_save("3D-plott")
