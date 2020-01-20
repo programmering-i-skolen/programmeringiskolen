@@ -12,7 +12,7 @@ inputs = inputs[indices]
 species = species[indices]
 
 
-categories = np.zeros(len(species), dtype="uint8")
+categories = np.zeros(len(species))#, dtype="uint8")
 categories[species == "setosa"] = 0
 categories[species == "versicolor"] = 1
 categories[species == "virginica"] = 2

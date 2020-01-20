@@ -47,7 +47,7 @@ plt.xlim(-10,100) # Definisjonsmengde
 plt.ylim(-1,12)  # Verdimengde
 plt.axhline(y=0, color = 'black') # Horisontal linje ved y = 0
 plt.axvline(x=0, color = 'black') # Vertikal linje ved x = 0
-plt.grid()
+plt.grid()  
 figure_end()
 figure_save("blodsukker3")
 
