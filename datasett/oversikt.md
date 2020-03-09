@@ -1,7 +1,7 @@
-[motstand_eksperiment.txt](datasett/motstand_eksperiment.txt)
+[motstand_eksperiment.txt](motstand_eksperiment.txt)
 
-[sas_fly.txt](datasett/sas_fly.txt)
+[sas_fly.txt](sas_fly.txt)
 
-[periodesystemet.txt](datasett/periodesystemet.txt)
+[periodesystemet.txt](periodesystemet.txt)
 
-[iris.csv](datasett/iris.csv)
+[iris.csv](iris.csv)
