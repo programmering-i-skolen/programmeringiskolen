@@ -21,7 +21,7 @@ author: Andreas Haraldsrud, Henrik Hillestad Løvold, Henrik Andersen Sveinsson
 email: YOUR EMAIL
 description: >-
   Nettressurser for boka *Programmering i skolen*.
-baseurl: /  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
+baseurl: /nettinnhold  # the subpath of your site, e.g. /blog. If there is no subpath for your site, use an empty string ""
 url: YOUR URL                  # the base hostname & protocol for your site, e.g. http://example.com
 
 
