@@ -1,0 +1,47 @@
+name: CI
+
+on: 
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        python: [3.7]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6'
+      
+      - name: install
+        run: |
+          python3 --version
+          sudo pip3 install setuptools
+          sudo pip3 install jupyter-book 
+            
+      - name: build 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: | 
+          
+          cd $GITHUB_WORKSPACE
+          git init 
+          git config user.name "Github Actions"
+          git config user.email "github-actions-bot@users.noreply.github.com"
+          REPOSITORY_PATH="https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          
+          git checkout master 
+          files=`ls`
+          mkdir content && mv $files content/
+          mv content/toc.yml .
+          mv content/_config.yml .
+          jupyter-book create book --content-folder content --toc toc.yml --config _config.yml
+          cd book && make install && make site && cd ..
+          
+          git add -vf book/_site
+          git commit -m "Deploying to gh-pages from master" --quiet && \
+          git push $REPOSITORY_PATH `git subtree split --prefix book/_site master`:gh-pages --force
