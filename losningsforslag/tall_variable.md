@@ -1,0 +1,1 @@
+Dette er eløsningsforslag for kapittelet tall og variable
