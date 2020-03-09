@@ -1,0 +1,20 @@
+- title: Installasjon
+  url: /installasjon/intro
+  not_numbered: false
+  expand_sections: true
+  sections:
+  - title: Anaconda
+    url: /installasjon/anaconda
+  
+- title: Løsningsforslag
+  url: /losningsforslag/intro
+  not_numbered: false
+  expand_sections: true
+  sections:
+  - title: Introduksjon
+    url: /losningsforslag/introduksjon
+  - title: Tall og variable
+    url: /losningsforslag/tall_variable
+
+- title: Datasett
+  url: /datasett/oversikt
