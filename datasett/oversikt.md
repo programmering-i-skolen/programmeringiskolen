@@ -5,3 +5,6 @@
 [periodesystemet.txt](periodesystemet.txt)
 
 [iris.csv](iris.csv)
+
+[solflekkdata.txt](solflekkdata.txt)]
+
