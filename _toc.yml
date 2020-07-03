@@ -1,7 +1,9 @@
-- file: README
+- file: intro
 
 - file: installasjon/anaconda
 - file: datasett/oversikt
+- file: datasett/motstand_eksperiment.txt
+- file: datasett/solflekkdata.txt
 
 - header: Løsningsforslag 
 - file: losningsforslag/kap2
