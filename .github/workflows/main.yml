@@ -39,4 +39,4 @@ jobs:
           
           git add -vf _build
           git commit -m "Deploying to gh-pages from master" --quiet && \
-          git push $REPOSITORY_PATH `git subtree split --prefix book/_site master`:gh-pages --force
+          git push $REPOSITORY_PATH `git subtree split --prefix _build master`:gh-pages --force
