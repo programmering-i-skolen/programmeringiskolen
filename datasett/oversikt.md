@@ -6,5 +6,5 @@
 
 [iris.csv](iris.csv)
 
-[solflekkdata.txt](solflekkdata.txt)]
+[solflekkdata.txt](solflekkdata.txt)
 

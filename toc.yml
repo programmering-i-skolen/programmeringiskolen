@@ -11,10 +11,9 @@
   not_numbered: false
   expand_sections: true
   sections:
-  - title: Introduksjon
-    url: /losningsforslag/introduksjon
-  - title: Tall og variable
-    url: /losningsforslag/tall_variable
+  - title: Kapittel 2: Tall og variable
+    url: /losningsforslag/kap2
+  - title: Kapittel 3: Kontrollstrukturer og funksjoner
 
 - title: Datasett
   url: /datasett/oversikt
