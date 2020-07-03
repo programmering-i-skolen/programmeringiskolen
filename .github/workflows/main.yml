@@ -36,7 +36,10 @@ jobs:
           
           git checkout master 
           jupyter-book build .
-          
-          git add -vf _build
-          git commit -m "Deploying to gh-pages from master" --quiet && \
-          git push $REPOSITORY_PATH `git subtree split --prefix _build master`:gh-pages --force
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true
+          publish_dir: ./_build/html
