@@ -9,6 +9,7 @@ copyright: "2020"
 execute:
   execute_notebooks         : off  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   
+ 
 html:
   favicon                   : ""  # A path to a favicon image
   navbar_number_sections    : False  # Add a number to each section in your left navbar
@@ -25,8 +26,9 @@ html:
 repository:
   url                       : https://github.com/programmering-i-skolen/nettinnhold/  # The URL to your book's repository
   
-# Controlling page information
-page_titles: infer                      # Either `None`, `infer`, or `toc`
-page_authors: None                     # Either `None` or `infer`
-filename_title_split_character: _     # If inferring titles based on filename, splt on this character.
-
+sphinx:
+  config:
+   html_extra_path: ["datasett/files/"]
+   
+    
+    

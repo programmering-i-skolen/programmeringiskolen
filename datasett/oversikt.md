@@ -1,12 +1,16 @@
 # Datasett
 
-[motstand_eksperiment.txt](motstand_eksperiment.txt)
 
-[sas_fly.txt](sas_fly.txt)
+<a href= motstand_eksperiment.txt>motstand_eksperiment.txt</a>
 
-[periodesystemet.txt](periodesystemet.txt)
+<a href= sas_fly.txt>sas_fly.txt</a>
 
-[iris.csv](iris.csv)
+<a href= periodesystemet.txt>periodesystemet.txt</a>
 
-[solflekkdata.txt](solflekkdata.txt)
+<a href= iris.csv>iris.csv</a>
+
+<a href= heistur.csv>heistur.csv</a>
+
+<a href= solflekkdata.txt>solflekkdata.txt</a>
+
 
