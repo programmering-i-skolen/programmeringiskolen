@@ -1,19 +1,12 @@
-- title: Installasjon
-  url: /installasjon/intro
-  not_numbered: false
-  expand_sections: true
-  sections:
-  - title: Anaconda
-    url: /installasjon/anaconda
-  
-- title: Løsningsforslag
-  url: /losningsforslag/intro
-  not_numbered: false
-  expand_sections: true
-  sections:
-  - title: Kapittel 2: Tall og variable
-    url: /losningsforslag/kap2
-  - title: Kapittel 3: Kontrollstrukturer og funksjoner
+- file: README
 
-- title: Datasett
-  url: /datasett/oversikt
+- file: installasjon/anaconda
+- file: datasett/oversikt
+
+- header: Løsningsforslag 
+- file: losningsforslag/kap2
+- file: losningsforslag/kap3
+- file: losningsforslag/kap4
+
+
+
