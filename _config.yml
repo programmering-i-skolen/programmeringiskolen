@@ -5,6 +5,7 @@ email: YOUR EMAIL
 description: >-
   Nettressurser for boka *Programmering i skolen*.
 copyright: "2020"
+logo: figurer/programmering_i_skolen_logo.jpg
 
 execute:
   execute_notebooks         : off  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
