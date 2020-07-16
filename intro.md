@@ -1,6 +1,6 @@
 # Om programmering i skolen 
 
-Dette er nettsidene til boka _Programmering i Skolen_ utgitt på Universitetsforlaget i 2020. Her finner du datasett som skal brukes i noen av eksemplene og oppgavene i boka. I tillegg finner du løsningsforslag til de aller fleste av oppgavene i boka. 
+Dette er nettsidene til boka [_Programmering i Skolen_](https://www.universitetsforlaget.no/programmering-i-skolen-1) utgitt på Universitetsforlaget i 2020. Her finner du datasett som skal brukes i noen av eksemplene og oppgavene i boka. I tillegg finner du løsningsforslag til de aller fleste av oppgavene i boka. 
 
 Programmering og algoritmisk tenkning er viktige ferdigheter i dagens samfunn og har med fagfornyelsen kommet med i læreplanen til flere fag, der de realfaglige emnene spiller en sentral rolle.
 
