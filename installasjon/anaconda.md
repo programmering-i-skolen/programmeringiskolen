@@ -52,4 +52,4 @@ width: 600px
 Spyder. 
 ```
 
-Dette sørger for at ikke variable og innstillinger fra et program du nettopp har kjørt, blander seg inn i kjøringen av andre programmer. 
+Dette sørger for at ikke variabler og innstillinger fra et program du nettopp har kjørt, blander seg inn i kjøringen av andre programmer. 
