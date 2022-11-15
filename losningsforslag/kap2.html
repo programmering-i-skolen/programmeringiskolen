@@ -1,0 +1,1570 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Tall og variabler &#8212; Programmering i skolen</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pis.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://programmering-i-skolen.github.io/programmeringiskolen/losningsforslag/kap2.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Kontrollstrukturer og funksjoner" href="kap3.html" />
+    <link rel="prev" title="Installasjon av Anaconda" href="../installasjon/anaconda.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/programmering_i_skolen_forside.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programmering i skolen</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Om programmering i skolen
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressurser
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasett/oversikt.html">
+   Datasett
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installasjon/anaconda.html">
+   Installasjon av
+   <em>
+    Anaconda
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Løsningsforslag
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Tall og variabler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap3.html">
+   3. Kontrollstrukturer og funksjoner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap4.html">
+   4. Datastrukturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap5.html">
+   5. Blokkprogrammering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap6.html">
+   6. Plotting og grafikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap7.html">
+   7. Data og statistikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap12.html">
+   12. Derivasjon og integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap13.html">
+   13. Dynamiske systemer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap15.html">
+   15. Objektorientert programmering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/programmering-i-skolen/nettinnhold/master?urlpath=tree/losningsforslag/kap2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/programmering-i-skolen/nettinnhold//issues/new?title=Issue%20on%20page%20%2Flosningsforslag/kap2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/losningsforslag/kap2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-1-flyttall-og-desimaltall">
+     Underveisoppgave 2.1: Flyttall og desimaltall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-4-partall-og-oddetall">
+     Underveisoppgave 2.4: Partall og oddetall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-5">
+     Underveisoppgave 2.5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-6-rett-opp-sa-input">
+     Underveisoppgave 2.6: Rett opp, så input
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Tall og variabler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-9">
+     Oppgave 9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-10">
+     Oppgave 10
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-11">
+     Oppgave 11
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-12">
+     Oppgave 12
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-13">
+     Oppgave 13
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-14">
+     Oppgave 14
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-15">
+     Oppgave 15
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input">
+   Input
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-16">
+     Oppgave 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-17">
+     Oppgave 17
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-18">
+     Oppgave 18
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-19">
+     Oppgave 19
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-20">
+     Oppgave 20
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-21">
+     Oppgave 21
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-22">
+     Oppgave 22
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lister">
+   Lister
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-23">
+     Oppgave 23
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-24">
+     Oppgave 24
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-25">
+     Oppgave 25
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-26">
+     Oppgave 26
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2. Tall og variabler</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-1-flyttall-og-desimaltall">
+     Underveisoppgave 2.1: Flyttall og desimaltall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-4-partall-og-oddetall">
+     Underveisoppgave 2.4: Partall og oddetall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-5">
+     Underveisoppgave 2.5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-2-6-rett-opp-sa-input">
+     Underveisoppgave 2.6: Rett opp, så input
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Tall og variabler
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-9">
+     Oppgave 9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-10">
+     Oppgave 10
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-11">
+     Oppgave 11
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-12">
+     Oppgave 12
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-13">
+     Oppgave 13
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-14">
+     Oppgave 14
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-15">
+     Oppgave 15
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#input">
+   Input
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-16">
+     Oppgave 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-17">
+     Oppgave 17
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-18">
+     Oppgave 18
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-19">
+     Oppgave 19
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-20">
+     Oppgave 20
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-21">
+     Oppgave 21
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-22">
+     Oppgave 22
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lister">
+   Lister
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-23">
+     Oppgave 23
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-24">
+     Oppgave 24
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-25">
+     Oppgave 25
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-26">
+     Oppgave 26
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tall-og-variabler">
+<h1>2. Tall og variabler<a class="headerlink" href="#tall-og-variabler" title="Permalink to this headline">#</a></h1>
+<p>På denne siden finner du løsningsforslag til oppgavene tilhørende kapittel 2 i læreboken <em>Programmering i skolen</em>. Vi gir også løsning på de av underveisoppgavene som har en tydelig løsning. Noen av underveisoppgavene er såpass utforskende eller diskusjonsbareter at det blir rart å lage løsningsforslag.</p>
+<section id="underveisoppgaver">
+<h2>Underveisoppgaver<a class="headerlink" href="#underveisoppgaver" title="Permalink to this headline">#</a></h2>
+<section id="underveisoppgave-2-1-flyttall-og-desimaltall">
+<h3>Underveisoppgave 2.1: Flyttall og desimaltall<a class="headerlink" href="#underveisoppgave-2-1-flyttall-og-desimaltall" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>Resultatet av beregningen blir</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9000000000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>som er bittelitt annerledes enn når vi gjør det for hånd. For hånd blir svaret eksakt lik 9.</p>
+<ol class="simple">
+<li><p>Det er ikke mulig å representere tallene 0.1 og 0.2 eksakt i 2-tallsystemet med 64 bits. Derfor ender datamaskinen med å lage tallene avrundet til nærmeste verdi i 2-tallsystemet.</p></li>
+<li><p>For eksempel:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.551115123125783e-17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dette burde blitt eksakt lik 0, men det ble det ikke pga. avrundingsfeil.</p>
+</section>
+<section id="underveisoppgave-2-4-partall-og-oddetall">
+<h3>Underveisoppgave 2.4: Partall og oddetall<a class="headerlink" href="#underveisoppgave-2-4-partall-og-oddetall" title="Permalink to this headline">#</a></h3>
+<p>Et partall <span class="math notranslate nohighlight">\(n\)</span> har egenkapen <span class="math notranslate nohighlight">\(n\%2 = 0\)</span>, mens et oddetall har tilsvarende at <span class="math notranslate nohighlight">\(n\%2 = 1\)</span>. Dette kan vi bruke til å finne ut om et tall er partall eller oddetall. Eksempel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6%2:&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="o">%</span><span class="k">2</span>)
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3%2:&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="o">%</span><span class="k">2</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6%2: 0
+3%2: 1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="underveisoppgave-2-5">
+<h3>Underveisoppgave 2.5<a class="headerlink" href="#underveisoppgave-2-5" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liste_a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">liste_b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+<span class="c1"># Slett det siste elementet i den ene lista </span>
+<span class="n">liste_a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># alternative metoder:</span>
+<span class="c1"># liste_a.pop()</span>
+<span class="c1"># del liste_a[-1]</span>
+
+<span class="c1"># Legg til et tall </span>
+<span class="n">liste_b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Slett element nr. 2. </span>
+<span class="k">del</span> <span class="n">liste_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Lag en ny variabel der du adderer listene</span>
+<span class="n">liste_c</span> <span class="o">=</span> <span class="n">liste_a</span> <span class="o">+</span> <span class="n">liste_b</span>
+
+<span class="c1"># Skriv ut de tre listene</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste_a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liste_c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 5, 3, 7]
+[7, 45, 78, 19, 4]
+[2, 5, 3, 7, 7, 45, 78, 19, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser at <code class="docutils literal notranslate"><span class="pre">+</span></code>-operasjonen mellom to lister er å legge alle elementene i de to listene etter hverandre i en ny liste.</p>
+</section>
+<section id="underveisoppgave-2-6-rett-opp-sa-input">
+<h3>Underveisoppgave 2.6: Rett opp, så input<a class="headerlink" href="#underveisoppgave-2-6-rett-opp-sa-input" title="Permalink to this headline">#</a></h3>
+<p>Vi begynner med å prøve å kjøre koden slik den er oppgitt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">høyde</span> <span class="o">=</span> <span class="mi">3480</span>
+<span class="n">prosentAndel</span> <span class="o">=</span> <span class="n">høyde</span><span class="o">/</span><span class="mi">8848</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er på&quot;</span><span class="p">,</span> <span class="n">prosentAndel</span> <span class="s2">&quot;prosent av Mount Everest ved&quot;</span><span class="p">,</span>
+    <span class="n">høyde</span><span class="p">,</span> <span class="s2">&quot;meter&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-23-8682cf8e4fe7&gt;&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er på&quot;</span><span class="p">,</span> <span class="n">prosentAndel</span> <span class="s2">&quot;prosent av Mount Everest ved&quot;</span><span class="p">,</span>
+                                   <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da får vi en feilmelding. Det er en syntaksfeil, og her kommer det også opp en pil som viser hvor Python ble forvirra. Vi har glemt et komma etter <code class="docutils literal notranslate"><span class="pre">prosentAndel</span></code> i print-funksjonen. Når vi retter opp dette fungerer koden fint:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">høyde</span> <span class="o">=</span> <span class="mi">3480</span>
+<span class="n">prosentAndel</span> <span class="o">=</span> <span class="n">høyde</span><span class="o">/</span><span class="mi">8848</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er på&quot;</span><span class="p">,</span> <span class="n">prosentAndel</span><span class="p">,</span> <span class="s2">&quot;prosent av Mount Everest ved&quot;</span><span class="p">,</span>
+    <span class="n">høyde</span><span class="p">,</span> <span class="s2">&quot;meter&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er på 0.3933092224231465 prosent av Mount Everest ved 3480 meter
+</pre></div>
+</div>
+</div>
+</div>
+<p>Så bytter vi ut kodelinja som setter høyden med en kodelinje som tar inn dette tallet fra brukeren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">høyde</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor høyt sitter du?&quot;</span><span class="p">))</span>
+<span class="n">prosentAndel</span> <span class="o">=</span> <span class="n">høyde</span><span class="o">/</span><span class="mi">8848</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er på&quot;</span><span class="p">,</span> <span class="n">prosentAndel</span><span class="p">,</span> <span class="s2">&quot;prosent av Mount Everest ved&quot;</span><span class="p">,</span>
+    <span class="n">høyde</span><span class="p">,</span> <span class="s2">&quot;meter&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hvor høyt sitter du? 2469
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er på 0.2790461121157324 prosent av Mount Everest ved 2469 meter
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id1">
+<h2>Tall og variabler<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>I disse oppgavene kommer vi til å benytte <em>input</em>, som ikke kommer før oppgaver tilhørende 2.13.2. Om du ikke ønsker å benytte <em>input</em> i disse oppgavene er det helt i orden å erstatte dette med en verdi du selv velger, og legge denne verdien direkte i koden.</p>
+<section id="oppgave-1">
+<h3>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Permalink to this headline">#</a></h3>
+<p>Den viktigste forskjellen er at vi i programmering pleier å tilordne verdier til variabler, mens vi i matematikken pleier å sette en variabel lik et matematisk uttrykk. I programmering regner datamaskinen ut hva som står til høyre for likhetstegnet, og tilordner det til variabelen. I matematikk pleier vi derimot bare å beskrive relasjonen mellom variabler. Kanskje skal vi så manipulere uttrykket og sette det sammen med mer informasjon for å finne ut av verdien til en av variablene på høyre side av likningen?</p>
+</section>
+<section id="oppgave-2">
+<h3>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">3.4</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mf">5.6</span>
+<span class="n">summen</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summen er&quot;</span><span class="p">,</span> <span class="n">summen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen er 9.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3">
+<h3>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Permalink to this headline">#</a></h3>
+<p>Vi ser at <code class="docutils literal notranslate"><span class="pre">a</span></code> settes til 2. Så settes <code class="docutils literal notranslate"><span class="pre">a</span></code>til sin egen verdi pluss 1. Da har <code class="docutils literal notranslate"><span class="pre">a</span></code> verdien 3. Så settes en ny variabel <code class="docutils literal notranslate"><span class="pre">b</span></code> til to ganger verdien til <code class="docutils literal notranslate"><span class="pre">a</span></code>, altså 6. Denne verdien skal printes, så da får vi tro at programmet printer <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span> 
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4">
+<h3>Oppgave 4<a class="headerlink" href="#oppgave-4" title="Permalink to this headline">#</a></h3>
+<p><span class="math notranslate nohighlight">\(a=2\)</span> går helt fint.</p>
+<p><span class="math notranslate nohighlight">\(a = a + 1\)</span> blir absurd matematisk, fordi det impliserer at 1 er lik 0.</p>
+<p><span class="math notranslate nohighlight">\(b = 2a\)</span> er uproblematisk. Om <span class="math notranslate nohighlight">\(a=2\)</span>, så må det bety at <span class="math notranslate nohighlight">\(b=4\)</span>.</p>
+</section>
+<section id="oppgave-5">
+<h3>Oppgave 5<a class="headerlink" href="#oppgave-5" title="Permalink to this headline">#</a></h3>
+<p>Vi kan for eksempel prøve følgende:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Jeg skal aldri jukse&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jeg skal aldri jukseJeg skal aldri jukseJeg skal aldri jukse
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser at å gange en streng med et heltall fører til at strengen gjentas det samme heltallet antall ganger.</p>
+</section>
+<section id="oppgave-6">
+<h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Permalink to this headline">#</a></h3>
+<p>Vi kjører programmet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">tall2</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tall1</span><span class="o">**</span><span class="n">tall2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">**</span></code> er potensoperatoren, og <span class="math notranslate nohighlight">\(2^4 = 16\)</span>, så dette passer fint.</p>
+</section>
+<section id="oppgave-7">
+<h3>Oppgave 7<a class="headerlink" href="#oppgave-7" title="Permalink to this headline">#</a></h3>
+<p>a)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn radius: &quot;</span><span class="p">))</span>
+<span class="n">areal</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arealet av sirkelen er&quot;</span><span class="p">,</span> <span class="n">areal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn radius:  34
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arealet av sirkelen er 3631.681107549801
+</pre></div>
+</div>
+</div>
+</div>
+<p>b)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">areal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn areal: &quot;</span><span class="p">))</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">areal</span><span class="p">)</span> <span class="o">/</span> <span class="n">pi</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radius i sirkelen er&quot;</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn areal:  45
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Radius i sirkelen er 2.1352876302515313
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-9">
+<h3>Oppgave 9<a class="headerlink" href="#oppgave-9" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grunntall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast grunntall: &quot;</span><span class="p">))</span>
+
+<span class="n">kvadrert</span> <span class="o">=</span> <span class="n">grunntall</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grunntall</span><span class="p">,</span> <span class="s2">&quot;kvadrert er&quot;</span><span class="p">,</span> <span class="n">kvadrert</span><span class="p">)</span>
+
+<span class="n">rot</span> <span class="o">=</span> <span class="n">kvadrert</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Roten av&quot;</span><span class="p">,</span> <span class="n">kvadrert</span><span class="p">,</span> <span class="s2">&quot;er&quot;</span><span class="p">,</span> <span class="n">rot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast grunntall:  7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0 kvadrert er 49.0
+Roten av 49.0 er 7.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-10">
+<h3>Oppgave 10<a class="headerlink" href="#oppgave-10" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+9
+2.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-11">
+<h3>Oppgave 11<a class="headerlink" href="#oppgave-11" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="mi">12</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Her gjelder det å holde tunga rett i munnen, og legge inn parenteser der det er hensiktsmessig.</span>
+<span class="c1"># Er man usikker på om beregningen blir riktig, skader det aldri å legge til ekstra parenteser.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-12">
+<h3>Oppgave 12<a class="headerlink" href="#oppgave-12" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kvadrattall1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">kvadrattall2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">kvadrattall3</span> <span class="o">=</span> <span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">kvadrattall4</span> <span class="o">=</span> <span class="mi">4</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall1</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall3</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kvadrattall4</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Denne oppgaven kunne vært løst vha. en løkke, dette kommer vi til i et senere kapittel.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+16
+1.0
+2.0
+3.0
+4.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-13">
+<h3>Oppgave 13<a class="headerlink" href="#oppgave-13" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Regner ukjent side AC med sinussetningen</span>
+<span class="sd">gitt følgende opplysninger:</span>
+<span class="sd">BC = 3</span>
+<span class="sd">Vinkel B = 30 grader</span>
+<span class="sd">Vinkel C = 80 grader</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">AB</span> <span class="o">=</span> <span class="mi">3</span> 
+<span class="n">vinkelB</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">vinkelC</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="n">AC</span> <span class="o">=</span> <span class="n">AB</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">vinkelB</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">vinkelC</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sidelengden AC =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">AC</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sidelengden AC = 1.52
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-14">
+<h3>Oppgave 14<a class="headerlink" href="#oppgave-14" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="o">*</span><span class="mi">1</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">1</span><span class="o">*</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="o">*</span><span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Likningen har løsninger&quot;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s2">&quot;og&quot;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+
+<span class="c1"># Merk at vi må regne ut x1 og x2 separat, Python forstår seg ikke på +/-.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likningen har løsninger 0.0 og -2.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-15">
+<h3>Oppgave 15<a class="headerlink" href="#oppgave-15" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Regner ut konsentrasjonen av acetat/oksonium</span>
+<span class="sd">gitt konsentrasjonen til eddiksyre lik 0,10 mol/L</span>
+<span class="sd">og Ka = 1,8x10^-5.</span>
+
+<span class="sd">Legg merke til at programmet kan brukes for en generell syre.</span>
+<span class="sd">Du trenger bare å spesifisere en ny konsentrasjon og Ka.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">Ka</span> <span class="o">=</span> <span class="mf">1.8E-5</span>
+<span class="n">kons_syre</span> <span class="o">=</span> <span class="mf">0.10</span>
+
+<span class="c1"># Løser andregradslikningen</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Ka</span>
+<span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">kons_syre</span><span class="o">*</span><span class="n">Ka</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Konsentrasjonen av base er:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="s2">&quot;mol/L.&quot;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Vi kan også bruke opplysningene til å regne ut pH-en</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">pH</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pH-en er:&quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">pH</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Konsentrasjonen av base er: 0.0013 mol/L.
+pH-en er: 2.88
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="input">
+<h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-16">
+<h3>Oppgave 16<a class="headerlink" href="#oppgave-16" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">navn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast ditt navn: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei,&quot;</span><span class="p">,</span> <span class="n">navn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast ditt navn:  Henrik
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hei, Henrik
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-17">
+<h3>Oppgave 17<a class="headerlink" href="#oppgave-17" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aar</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Antall år: &quot;</span><span class="p">))</span>
+<span class="n">sekunder</span> <span class="o">=</span> <span class="n">aar</span><span class="o">*</span><span class="mi">365</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="o">*</span><span class="mi">60</span>
+<span class="c1"># 365 dager per år, 24 timer per dag, 60 minutter per time, 60 sekunder per minutt.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I løpet av&quot;</span><span class="p">,</span> <span class="n">aar</span><span class="p">,</span> <span class="s2">&quot;år, er det&quot;</span><span class="p">,</span> <span class="n">sekunder</span><span class="p">,</span> <span class="s2">&quot;sekunder.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Antall år:  45
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I løpet av 45 år, er det 1419120000 sekunder.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-18">
+<h3>Oppgave 18<a class="headerlink" href="#oppgave-18" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn a: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn b: &quot;</span><span class="p">))</span>
+
+<span class="n">kvotient</span> <span class="o">=</span> <span class="n">a</span><span class="o">//</span><span class="n">b</span>
+<span class="n">rest</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">kvotient</span><span class="p">,</span> <span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">rest</span><span class="p">,</span> <span class="s2">&quot;i rest&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn a:  4
+Tast inn b:  8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 / 8 = 0 + 4 i rest
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-19">
+<h3>Oppgave 19<a class="headerlink" href="#oppgave-19" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast radius: &quot;</span><span class="p">))</span>
+<span class="n">areal</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Areal av sirkel er&quot;</span><span class="p">,</span> <span class="n">areal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast radius:  4.7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Areal av sirkel er 69.39778171779854
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-20">
+<h3>Oppgave 20<a class="headerlink" href="#oppgave-20" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grunnlinje</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast grunnlinje: &quot;</span><span class="p">))</span>
+<span class="n">hoyde</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast høyde: &quot;</span><span class="p">))</span>
+
+<span class="n">areal</span> <span class="o">=</span> <span class="n">grunnlinje</span><span class="o">*</span><span class="n">hoyde</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">grunnlinje</span><span class="o">*</span><span class="n">hoyde</span> <span class="o">/</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arealet er&quot;</span><span class="p">,</span> <span class="n">areal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast grunnlinje:  5.8
+Tast høyde:  4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arealet er 23.2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-21">
+<h3>Oppgave 21<a class="headerlink" href="#oppgave-21" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast radius: &quot;</span><span class="p">))</span>
+
+<span class="n">overflate</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">volum</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span> <span class="o">*</span> <span class="n">overflate</span> <span class="o">*</span> <span class="n">radius</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Overflate =&quot;</span><span class="p">,</span> <span class="n">overflate</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volum =&quot;</span><span class="p">,</span> <span class="n">volum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast radius:  6.2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overflate = 483.0512864159667
+Volum = 998.3059919263311
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-22">
+<h3>Oppgave 22<a class="headerlink" href="#oppgave-22" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grunntall</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast grunntall: &quot;</span><span class="p">))</span>
+<span class="n">eksponent</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast eksponent: &quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grunntall opphøyet i eksponent:&quot;</span><span class="p">,</span> <span class="n">grunntall</span><span class="o">**</span><span class="n">eksponent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast grunntall:  3
+Tast eksponent:  4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grunntall opphøyet i eksponent: 81.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lister">
+<h2>Lister<a class="headerlink" href="#lister" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-23">
+<h3>Oppgave 23<a class="headerlink" href="#oppgave-23" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">partall</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="n">oddetall</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+
+<span class="c1"># (a)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">partall</span> <span class="o">+</span> <span class="n">oddetall</span><span class="p">)</span> <span class="c1"># de legges sammen til én lang liste</span>
+
+<span class="c1"># (b)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">partall</span><span class="o">*</span><span class="n">oddetall</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10, 12, 14, 16, 1, 3, 5, 7, 9, 11, 13, 15]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">39</span><span class="o">-</span><span class="mi">793</span><span class="n">f6270df37</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># (b)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">partall</span><span class="o">*</span><span class="n">oddetall</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: can&#39;t multiply sequence by non-int of type &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">partall</span><span class="o">/</span><span class="n">oddetall</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">41</span><span class="o">-</span><span class="mi">631</span><span class="n">d93d7ea1c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">partall</span><span class="o">/</span><span class="n">oddetall</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for /: &#39;list&#39; and &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser at både multiplikasjon og divisjon av liste med liste gir <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. Det skyldes at disse operasjonene ikke er tillatt mellom to variabler av typen <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+</section>
+<section id="oppgave-24">
+<h3>Oppgave 24<a class="headerlink" href="#oppgave-24" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serier</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Home and away&quot;</span><span class="p">,</span> <span class="s2">&quot;7th heaven&quot;</span><span class="p">,</span> <span class="s2">&quot;Pacific blue&quot;</span><span class="p">,</span> <span class="s2">&quot;MacGyver&quot;</span><span class="p">,</span> <span class="s2">&quot;Hotell Caesar&quot;</span><span class="p">]</span>
+<span class="n">boeker</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ringenes herre&quot;</span><span class="p">,</span> <span class="s2">&quot;Fluenes herre&quot;</span><span class="p">,</span> <span class="s2">&quot;Tatt av vinden&quot;</span><span class="p">,</span> <span class="s2">&quot;Tatt av kvinnen&quot;</span><span class="p">,</span> <span class="s2">&quot;Froeken Detektiv&quot;</span><span class="p">]</span>
+
+<span class="c1"># (a)</span>
+<span class="n">alle</span> <span class="o">=</span> <span class="n">serier</span> <span class="o">+</span> <span class="n">boeker</span>
+
+<span class="c1"># (b)</span>
+<span class="k">del</span> <span class="n">alle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">alle</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># (c)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ringenes herre finnes på indeks&quot;</span><span class="p">,</span> <span class="n">alle</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Ringenes herre&quot;</span><span class="p">))</span>
+
+<span class="c1"># (d)</span>
+<span class="n">nyliste</span> <span class="o">=</span> <span class="n">alle</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="c1"># (e)</span>
+<span class="n">nyliste</span> <span class="o">=</span> <span class="n">nyliste</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ringenes herre finnes på indeks 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-25">
+<h3>Oppgave 25<a class="headerlink" href="#oppgave-25" title="Permalink to this headline">#</a></h3>
+<p>Denne oppgaven løser du på egenhånd ved å slå opp i dokumentasjonen.</p>
+</section>
+<section id="oppgave-26">
+<h3>Oppgave 26<a class="headerlink" href="#oppgave-26" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Eksempel der fartsformelen er brukt med input</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hva er startfarten i m/s? &quot;</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hva er akselerasjonen i m/s^2? &quot;</span><span class="p">))</span>
+<span class="n">t</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hva er tida i s? &quot;</span><span class="p">))</span>
+
+<span class="n">v</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">t</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sluttfarten er:&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s2">&quot;m/s.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hva er startfarten i m/s?  4.6
+Hva er akselerasjonen i m/s^2?  2
+Hva er tida i s?  9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sluttfarten er: 22.6 m/s.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./losningsforslag"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../installasjon/anaconda.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installasjon av <em>Anaconda</em></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="kap3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3. Kontrollstrukturer og funksjoner</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Andreas Haraldsrud, Henrik Andersen Sveinsson, Henrik Hillestad Løvold<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

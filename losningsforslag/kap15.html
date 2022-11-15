@@ -1,0 +1,2318 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>15. Objektorientert programmering &#8212; Programmering i skolen</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pis.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://programmering-i-skolen.github.io/programmeringiskolen/losningsforslag/kap15.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="13. Dynamiske systemer" href="kap13.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/programmering_i_skolen_forside.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programmering i skolen</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Om programmering i skolen
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressurser
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasett/oversikt.html">
+   Datasett
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installasjon/anaconda.html">
+   Installasjon av
+   <em>
+    Anaconda
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Løsningsforslag
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap2.html">
+   2. Tall og variabler
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap3.html">
+   3. Kontrollstrukturer og funksjoner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap4.html">
+   4. Datastrukturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap5.html">
+   5. Blokkprogrammering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap6.html">
+   6. Plotting og grafikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap7.html">
+   7. Data og statistikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap12.html">
+   12. Derivasjon og integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap13.html">
+   13. Dynamiske systemer
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   15. Objektorientert programmering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/programmering-i-skolen/nettinnhold/master?urlpath=tree/losningsforslag/kap15.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/programmering-i-skolen/nettinnhold//issues/new?title=Issue%20on%20page%20%2Flosningsforslag/kap15.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/losningsforslag/kap15.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-1-klasse-for-a-representere-et-vannglass">
+     Underveisoppgave 15.1: Klasse for å representere et vannglass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-2-en-klasse-for-en-vektor">
+     Underveisoppgave 15.2: En klasse for en vektor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-3-metningsvektor">
+     Underveisoppgave 15.3: Metningsvektor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasser">
+   Klasser
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arv">
+   Arv
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nar-er-klasser-nyttig">
+   Når er klasser nyttig?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>15. Objektorientert programmering</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-1-klasse-for-a-representere-et-vannglass">
+     Underveisoppgave 15.1: Klasse for å representere et vannglass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-2-en-klasse-for-en-vektor">
+     Underveisoppgave 15.2: En klasse for en vektor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-15-3-metningsvektor">
+     Underveisoppgave 15.3: Metningsvektor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#klasser">
+   Klasser
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arv">
+   Arv
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nar-er-klasser-nyttig">
+   Når er klasser nyttig?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="objektorientert-programmering">
+<h1>15. Objektorientert programmering<a class="headerlink" href="#objektorientert-programmering" title="Permalink to this headline">#</a></h1>
+<section id="underveisoppgaver">
+<h2>Underveisoppgaver<a class="headerlink" href="#underveisoppgaver" title="Permalink to this headline">#</a></h2>
+<section id="underveisoppgave-15-1-klasse-for-a-representere-et-vannglass">
+<h3>Underveisoppgave 15.1: Klasse for å representere et vannglass<a class="headerlink" href="#underveisoppgave-15-1-klasse-for-a-representere-et-vannglass" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Glass</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kapasitet</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kapasitet</span> <span class="o">=</span> <span class="n">kapasitet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">=</span> <span class="mi">0</span> 
+        
+    <span class="k">def</span> <span class="nf">fyll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mengde</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">+=</span> <span class="n">mengde</span> 
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">kapasitet</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Det rant over&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kapasitet</span> 
+    
+    <span class="k">def</span> <span class="nf">tøm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mengde</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">-=</span> <span class="n">mengde</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Glasset er tomt&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span> <span class="o">=</span> <span class="mi">0</span>
+            
+    <span class="k">def</span> <span class="nf">sjekk_innhold</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">innhold</span>
+        
+<span class="n">mittGlass</span> <span class="o">=</span> <span class="n">Glass</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">mittGlass</span><span class="o">.</span><span class="n">fyll</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">mittGlass</span><span class="o">.</span><span class="n">fyll</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># prøver å ta 10 slurker </span>
+    <span class="n">mittGlass</span><span class="o">.</span><span class="n">tøm</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Det rant over
+Glasset er tomt
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="underveisoppgave-15-2-en-klasse-for-en-vektor">
+<h3>Underveisoppgave 15.2: En klasse for en vektor<a class="headerlink" href="#underveisoppgave-15-2-en-klasse-for-en-vektor" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vektor</span><span class="p">:</span> 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span>
+        
+    <span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">norm_sq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">norm_sq</span><span class="o">**</span><span class="mf">0.5</span>
+    
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">z</span>
+        
+
+        
+<span class="n">A</span> <span class="o">=</span> <span class="n">Vektor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">Vektor</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.4641016151377544
+10.392304845413264
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="underveisoppgave-15-3-metningsvektor">
+<h3>Underveisoppgave 15.3: Metningsvektor<a class="headerlink" href="#underveisoppgave-15-3-metningsvektor" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MetningsVektor</span><span class="p">(</span><span class="n">Vektor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mz</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mx</span> <span class="o">=</span> <span class="n">mx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">my</span> <span class="o">=</span> <span class="n">my</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mz</span> <span class="o">=</span> <span class="n">mz</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metning</span><span class="p">()</span>
+        
+    <span class="k">def</span> <span class="nf">metning</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mx</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mx</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">my</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">my</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mz</span><span class="p">:</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mz</span> 
+        
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metning</span><span class="p">()</span>
+        
+<span class="n">minVektor</span> <span class="o">=</span> <span class="n">MetningsVektor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">minVektor</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Vektor</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">minVektor</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Vektor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.0710678118654755
+7.0710678118654755
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="klasser">
+<h2>Klasser<a class="headerlink" href="#klasser" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-1">
+<h3>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Fall</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span>
+        
+    <span class="k">def</span> <span class="nf">akselerasjon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span>
+        <span class="k">return</span> <span class="n">a</span>
+    
+    <span class="k">def</span> <span class="nf">kraft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">F</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span>
+        <span class="k">return</span> <span class="n">F</span>
+    
+<span class="c1"># Eksempel på bruk av klassen for en ball med masse 2.0 kg</span>
+<span class="n">ball</span> <span class="o">=</span> <span class="n">Fall</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">9.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="o">.</span><span class="n">kraft</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dersom vi sender med <code class="docutils literal notranslate"><span class="pre">g</span></code> som argument til konstruktøren kan vi velge hva <span class="math notranslate nohighlight">\(g\)</span> skal være. Det er nyttig dersom vi planlegger å bruke klassen til å studere fritt fall nær overfalten av forskjellige himmellegemer. Dersom vi bare skal være nær jordoverflaten kunne vi like godt <em>hardkodet</em> <span class="math notranslate nohighlight">\(g\)</span> til å være <span class="math notranslate nohighlight">\(9.81\)</span> m/s.</p>
+</section>
+<section id="oppgave-2">
+<h3>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Grunnstoff</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a_num</span><span class="p">,</span><span class="n">symbol</span><span class="p">,</span><span class="n">masse</span><span class="p">,</span><span class="n">el_neg</span><span class="p">):</span> 
+        <span class="c1"># atomnummer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">=</span> <span class="n">a_num</span> 
+        <span class="c1"># symbol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span> <span class="o">=</span> <span class="n">symbol</span>
+        <span class="c1"># masse i g/mol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masse</span> <span class="o">=</span> <span class="n">masse</span>
+        <span class="c1"># elektronegativitet</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">el_neg</span> <span class="o">=</span> <span class="n">el_neg</span>
+        
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Symbol:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">symbol</span><span class="p">,</span> <span class="s2">&quot;| atomnummer:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span><span class="p">,</span> 
+              <span class="s2">&quot;| masse:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">masse</span><span class="p">,</span><span class="s2">&quot;| elektronegativitet:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">el_neg</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">periode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">18</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">36</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">54</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">5</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">86</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">6</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">a_num</span> <span class="o">&lt;=</span> <span class="mi">118</span><span class="p">:</span>
+            <span class="n">periode</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="k">return</span> <span class="n">periode</span>
+    
+<span class="c1"># Eksempel på bruk</span>
+<span class="n">hydrogen</span> <span class="o">=</span> <span class="n">Grunnstoff</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="mf">1.008</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)</span>
+<span class="n">karbon</span> <span class="o">=</span> <span class="n">Grunnstoff</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+
+<span class="n">hydrogen</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Perioden til karbon er:&quot;</span><span class="p">,</span> <span class="n">karbon</span><span class="o">.</span><span class="n">periode</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Symbol: H | atomnummer: 1 | masse: 1.008 | elektronegativitet: 2.1
+Perioden til karbon er: 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Her lager vi en metode <code class="docutils literal notranslate"><span class="pre">print</span></code> på Grunnstoff-klassen. Denne kommer <em>ikke</em> i konflikt med den innebygde <code class="docutils literal notranslate"><span class="pre">print</span></code>-funksjonen i Python, fordi vi kun kan kalle på <code class="docutils literal notranslate"><span class="pre">Grunnstoff</span></code> sin <code class="docutils literal notranslate"><span class="pre">print</span></code> <em>via</em> et <code class="docutils literal notranslate"><span class="pre">Grunnstoff</span></code>-objekt. En alternativ måte å gjøre det på, kan være å implementere en <em>spesialmetode</em> som heter <code class="docutils literal notranslate"><span class="pre">__str__</span></code> på <code class="docutils literal notranslate"><span class="pre">Grunnstoff</span></code>-klassen.  Da kan vi bestemme hva som skal printes om vi sender med et <code class="docutils literal notranslate"><span class="pre">Grunnstoff</span></code>-objekt som argument til den innebygde <code class="docutils literal notranslate"><span class="pre">Print</span></code>-funksjonen i Python. Vi må da implementere denne metoden slik at den returnerer den strengen vi vil at skal skrives ut om vi kaller på for eksempel <code class="docutils literal notranslate"><span class="pre">print(hydrogen)</span></code>.</p>
+</section>
+<section id="oppgave-3">
+<h3>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Permalink to this headline">#</a></h3>
+<p>Programmet nedenfor er en enkel løsning. Du kan eventuelt legge inn sortering etter atomnummer i periodesystemet, og du kan systematisere ved hjelp av dictionaries med atomnummer som nøkler. Dessuten kan det være fint med litt feilhåndtering slik at brukeren får en feilmedling dersom grunnstoffet ikke finnes i periodesystemet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Periodesystem</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grunnstoffer</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span> <span class="nf">legg_til_grunnstoff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objekt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grunnstoffer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">objekt</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">hent_grunnstoff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">stoff</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">grunnstoffer</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stoff</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="n">symbol</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">stoff</span>
+    
+<span class="n">periodesystemet</span> <span class="o">=</span> <span class="n">Periodesystem</span><span class="p">()</span>             <span class="c1"># Lager et periodesystem</span>
+<span class="n">periodesystemet</span><span class="o">.</span><span class="n">legg_til_grunnstoff</span><span class="p">(</span><span class="n">hydrogen</span><span class="p">)</span> <span class="c1"># Legger til et grunnstoff i periodesystemet</span>
+<span class="n">periodesystemet</span><span class="o">.</span><span class="n">legg_til_grunnstoff</span><span class="p">(</span><span class="n">karbon</span><span class="p">)</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">periodesystemet</span><span class="o">.</span><span class="n">hent_grunnstoff</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span> <span class="c1"># Henter grunnstoffet igjen</span>
+<span class="n">H</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  
+<span class="n">C</span> <span class="o">=</span> <span class="n">periodesystemet</span><span class="o">.</span><span class="n">hent_grunnstoff</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span> 
+<span class="n">C</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Symbol: H | atomnummer: 1 | masse: 1.008 | elektronegativitet: 2.1
+Symbol: C | atomnummer: 6 | masse: 12.0 | elektronegativitet: 2.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4">
+<h3>Oppgave 4<a class="headerlink" href="#oppgave-4" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Konto</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kontonavn</span><span class="p">,</span> <span class="n">rente</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">kontonavn</span> <span class="o">=</span> <span class="n">kontonavn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rente</span> <span class="o">=</span> <span class="n">rente</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="k">def</span> <span class="nf">sett_inn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beløp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">+=</span> <span class="n">beløp</span>
+        
+    <span class="k">def</span> <span class="nf">ta_ut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beløp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">-=</span> <span class="n">beløp</span>
+        
+    <span class="k">def</span> <span class="nf">navn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">kontonavn</span>
+    
+    <span class="k">def</span> <span class="nf">mnd_forrenting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span> <span class="o">*=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">rente</span><span class="o">/</span><span class="mi">100</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kontonavn</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saldo</span><span class="p">)</span>
+        
+            
+<span class="k">def</span> <span class="nf">overfør</span><span class="p">(</span><span class="n">konto1</span><span class="p">,</span> <span class="n">konto2</span><span class="p">,</span> <span class="n">beløp</span><span class="p">):</span>
+    <span class="n">konto1</span><span class="o">.</span><span class="n">ta_ut</span><span class="p">(</span><span class="n">beløp</span><span class="p">)</span>
+    <span class="n">konto2</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="n">beløp</span><span class="p">)</span>
+    
+<span class="n">kontoer</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kontoer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Konto</span><span class="p">(</span><span class="s2">&quot;brukskonto&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">kontoer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Konto</span><span class="p">(</span><span class="s2">&quot;boliglån&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.3</span><span class="p">))</span>
+<span class="n">kontoer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Konto</span><span class="p">(</span><span class="s2">&quot;billån&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">kontoer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Konto</span><span class="p">(</span><span class="s2">&quot;sparekonto&quot;</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">))</span>
+
+<span class="c1"># Først setter vi inn litt penger:</span>
+<span class="k">for</span> <span class="n">konto</span> <span class="ow">in</span> <span class="n">kontoer</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">konto</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;brukskonto&quot;</span><span class="p">:</span>
+        <span class="n">konto</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="mi">23000</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">konto</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;boliglån&quot;</span><span class="p">:</span>
+        <span class="n">konto</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="o">-</span><span class="mi">3400000</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">konto</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;billån&quot;</span><span class="p">:</span>
+        <span class="n">konto</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="mi">300000</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">konto</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;sparekonto&quot;</span><span class="p">:</span>
+        <span class="n">konto</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">årslønn</span> <span class="o">=</span> <span class="mi">460000</span>
+<span class="n">skatteprosent</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">netto_årslønn</span> <span class="o">=</span> <span class="n">årslønn</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">skatteprosent</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">240</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">konto1</span> <span class="ow">in</span> <span class="n">kontoer</span><span class="p">:</span>
+        <span class="n">konto1</span><span class="o">.</span><span class="n">mnd_forrenting</span><span class="p">()</span> 
+        <span class="k">if</span> <span class="n">konto1</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;brukskonto&quot;</span><span class="p">:</span>
+            <span class="n">konto1</span><span class="o">.</span><span class="n">sett_inn</span><span class="p">(</span><span class="n">netto_årslønn</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">konto2</span> <span class="ow">in</span> <span class="n">kontoer</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">konto2</span><span class="o">.</span><span class="n">navn</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;boliglån&quot;</span><span class="p">:</span>
+                <span class="n">overfør</span><span class="p">(</span><span class="n">konto1</span><span class="p">,</span> <span class="n">konto2</span><span class="p">,</span> <span class="mi">15000</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mnd&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">konto</span> <span class="ow">in</span> <span class="n">kontoer</span><span class="p">:</span>
+        <span class="n">konto</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mnd 0
+brukskonto : 35609.583333333336
+boliglån : -3348512.0833333335
+billån : 283875.0
+sparekonto : -4989.166666666666
+mnd 1
+brukskonto : 48224.42065972223
+boliglån : -3297122.8518402777
+billån : 267810.46875
+sparekonto : -19994.57159722222
+mnd 2
+brukskonto : 60844.51416833044
+boliglån : -3245832.1163742505
+billån : 251806.1794921875
+sparekonto : -35016.23238311921
+mnd 3
+brukskonto : 73469.86604923391
+boliglån : -3194639.6881512
+billån : 235861.9063190918
+sparekonto : -50054.16663486759
+mnd 4
+brukskonto : 86100.47849342109
+boliglån : -3143545.37874891
+billån : 219977.42417039518
+sparekonto : -65108.391982055364
+mnd 5
+brukskonto : 98736.35369279336
+boliglån : -3092549.000106308
+billån : 204152.5088297562
+sparekonto : -80178.92607336925
+mnd 6
+brukskonto : 111377.49384016536
+boliglån : -3041650.364522771
+billån : 188386.9369216446
+sparekonto : -95265.7865766154
+mnd 7
+brukskonto : 124023.90112926543
+boliglån : -2990849.2846574355
+billån : 172680.48590818842
+sparekonto : -110368.99117874006
+mnd 8
+brukskonto : 136675.57775473595
+boliglån : -2940145.5735285087
+billån : 157032.9340860327
+sparekonto : -125488.55758585036
+mnd 9
+brukskonto : 149332.52591213377
+boliglån : -2889539.0445125788
+billån : 141444.06058321008
+sparekonto : -140624.50352323503
+mnd 10
+brukskonto : 161994.7477979305
+boliglån : -2839029.5113439295
+billån : 125913.64535602304
+sparekonto : -155776.84673538522
+mnd 11
+brukskonto : 174662.245609513
+boliglån : -2788616.7881138534
+billån : 110441.46918593795
+sparekonto : -170945.6049860152
+mnd 12
+brukskonto : 187335.02154518364
+boliglån : -2738300.6892699683
+billån : 95027.31367649068
+sparekonto : -186130.7960580834
+mnd 13
+brukskonto : 200013.0778041608
+boliglån : -2688081.029615534
+billån : 79670.96125020384
+sparekonto : -201332.437753813
+mnd 14
+brukskonto : 212696.4165865792
+boliglån : -2637957.624308771
+billån : 64372.195145515565
+sparekonto : -216550.54789471294
+mnd 15
+brukskonto : 225385.0400934903
+boliglån : -2587930.288862179
+billån : 49130.79941371988
+sparekonto : -231785.14432159887
+mnd 16
+brukskonto : 238078.9505268626
+boliglån : -2537998.8391418597
+billån : 33946.558915918424
+sparekonto : -247036.24489461392
+mnd 17
+brukskonto : 250778.15008958214
+boliglån : -2488163.0913668377
+billån : 18819.25931998373
+sparekonto : -262303.8674932497
+mnd 18
+brukskonto : 263482.6409854528
+boliglån : -2438422.8621083847
+billån : 3748.687097533788
+sparekonto : -277588.0300163674
+mnd 19
+brukskonto : 276192.4254191968
+boliglån : -2388777.9682893436
+billån : -11265.370479081965
+sparekonto : -292888.75038221845
+mnd 20
+brukskonto : 288907.5055964548
+boliglån : -2339228.2271834556
+billån : -26223.12533978541
+sparekonto : -308206.0465284659
+mnd 21
+brukskonto : 301627.8837237867
+boliglån : -2289773.4564146874
+billån : -41124.78861976121
+sparekonto : -323539.93641220505
+mnd 22
+brukskonto : 314353.56200867164
+boliglån : -2240413.4739565593
+billån : -55970.5706624371
+sparekonto : -338890.4380099849
+mnd 23
+brukskonto : 327084.5426595086
+boliglån : -2191148.098131476
+billån : -70760.68102245296
+sparekonto : -354257.56931782904
+mnd 24
+brukskonto : 339820.82788561675
+boliglån : -2141977.147610057
+billån : -85495.32846861875
+sparekonto : -369641.3483512567
+mnd 25
+brukskonto : 352562.41989723576
+boliglån : -2092900.4414104712
+billån : -100174.72098686143
+sparekonto : -385041.7931453039
+mnd 26
+brukskonto : 365309.3209055263
+boliglån : -2043917.798897768
+billån : -114799.0657831607
+sparekonto : -400458.92175454466
+mnd 27
+brukskonto : 378061.53312257025
+boliglån : -1995029.0397832138
+billån : -129368.56928647384
+sparekonto : -415892.7522531121
+mnd 28
+brukskonto : 390819.05876137136
+boliglån : -1946233.9841236293
+billån : -143883.43715164956
+sparekonto : -431343.30273471965
+mnd 29
+brukskonto : 403581.9000358553
+boliglån : -1897532.4523207257
+billån : -158343.87426233088
+sparekonto : -446810.59131268226
+mnd 30
+brukskonto : 416350.05916087027
+boliglån : -1848924.2651204444
+billån : -172750.08473384712
+sparekonto : -462294.63611993764
+mnd 31
+brukskonto : 429123.5383521873
+boliglån : -1800409.2436122969
+billån : -187102.2719160952
+sparekonto : -477795.45530906756
+mnd 32
+brukskonto : 441902.33982650074
+boliglån : -1751987.2092287065
+billån : -201400.63839640983
+sparekonto : -493313.06705231906
+mnd 33
+brukskonto : 454686.4658014285
+boliglån : -1703657.9837443514
+billån : -215645.3860024233
+sparekonto : -508847.4895416257
+mnd 34
+brukskonto : 467475.91849551245
+boliglån : -1655421.389275508
+billån : -229836.71580491422
+sparekonto : -524398.7409886292
+mnd 35
+brukskonto : 480270.700128219
+boliglån : -1607277.2482793967
+billån : -243974.82812064578
+sparekonto : -539966.8396247001
+mnd 36
+brukskonto : 493070.8129199391
+boliglån : -1559225.3835535278
+billån : -258059.92251519335
+sparekonto : -555551.8037009602
+mnd 37
+brukskonto : 505876.25909198914
+boliglån : -1511265.6182350502
+billån : -272092.19780576136
+sparekonto : -571153.651488303
+mnd 38
+brukskonto : 518687.0408666108
+boliglån : -1463397.7758000996
+billån : -286071.85206398973
+sparekonto : -586772.4012774153
+mnd 39
+brukskonto : 531503.1604669719
+boliglån : -1415621.6800631494
+billån : -299999.08261874976
+sparekonto : -602408.0713787992
+mnd 40
+brukskonto : 544324.6201171665
+boliglån : -1367937.1551763618
+billån : -313874.08605892945
+sparekonto : -618060.6801227928
+mnd 41
+brukskonto : 557151.4220422154
+boliglån : -1320344.0256289404
+billån : -327697.05823620845
+sparekonto : -633730.2458595926
+mnd 42
+brukskonto : 569983.5684680663
+boliglån : -1272842.116246485
+billån : -341468.19426782266
+sparekonto : -649416.7869592737
+mnd 43
+brukskonto : 582821.0616215947
+boliglån : -1225431.252190346
+billån : -355187.68853931833
+sparekonto : -665120.3218118129
+mnd 44
+brukskonto : 595663.9037306037
+boliglån : -1178111.2589569811
+billån : -368855.7347072959
+sparekonto : -680840.8688271091
+mnd 45
+brukskonto : 608512.0970238249
+boliglån : -1130881.9623773135
+billån : -382472.5257021435
+sparekonto : -696578.4464350052
+mnd 46
+brukskonto : 621365.6437309182
+boliglån : -1083743.1886160902
+billån : -396038.2537307604
+sparekonto : -712333.0730853097
+mnd 47
+brukskonto : 634224.5460824728
+boliglån : -1036694.7641712427
+billån : -409553.11027927004
+sparekonto : -728104.7672478188
+mnd 48
+brukskonto : 647088.8063100072
+boliglån : -989736.5158732479
+billån : -423017.2861157228
+sparekonto : -743893.5474123373
+mnd 49
+brukskonto : 659958.4266459697
+boliglån : -942868.2708844908
+billån : -436430.9712927888
+sparekonto : -759699.4320887006
+mnd 50
+brukskonto : 672833.4093237389
+boliglån : -896089.8566986289
+billån : -449794.3551504408
+sparekonto : -775522.4398067967
+mnd 51
+brukskonto : 685713.7565776238
+boliglån : -849401.1011399565
+billån : -463107.62631862663
+sparekonto : -791362.5891165874
+mnd 52
+brukskonto : 698599.4706428645
+boliglån : -802801.8323627716
+billån : -476370.97271993174
+sparekonto : -807219.8985881304
+mnd 53
+brukskonto : 711490.5537556324
+boliglån : -756291.8788507429
+billån : -489584.581572232
+sparekonto : -823094.3868116009
+mnd 54
+brukskonto : 724387.0081530306
+boliglån : -709871.069416279
+billån : -502748.6393913361
+sparekonto : -838986.0723973134
+mnd 55
+brukskonto : 737288.8360730945
+boliglån : -663539.2331998978
+billån : -515863.3319936186
+sparekonto : -854894.9739757439
+mnd 56
+brukskonto : 750196.0397547917
+boliglån : -617296.199669598
+billån : -528928.8444986425
+sparekonto : -870821.110197551
+mnd 57
+brukskonto : 763108.6214380228
+boliglån : -571141.7986202313
+billån : -541945.3613317725
+sparekonto : -886764.4997335983
+mnd 58
+brukskonto : 776026.5833636221
+boliglån : -525075.8601728759
+billån : -554913.0662267783
+sparekonto : -902725.1612749763
+mnd 59
+brukskonto : 788949.927773357
+boliglån : -479098.2147742112
+billån : -567832.1422284279
+sparekonto : -918703.1135330242
+mnd 60
+brukskonto : 801878.6569099294
+boliglån : -433208.693195894
+billån : -580702.7716950712
+sparekonto : -934698.3752393516
+mnd 61
+brukskonto : 814812.7730169753
+boliglån : -387407.1265339352
+billån : -593525.1363012147
+sparekonto : -950710.9651458609
+mnd 62
+brukskonto : 827752.2783390657
+boliglån : -341693.3462080785
+billån : -606299.4170400851
+sparekonto : -966740.9020247689
+mnd 63
+brukskonto : 840697.175121707
+boliglån : -296067.1839611797
+billån : -619025.7942261847
+sparekonto : -982788.204668629
+mnd 64
+brukskonto : 853647.4656113412
+boliglån : -250528.4718585874
+billån : -631704.4474978365
+sparekonto : -998852.8918903533
+mnd 65
+brukskonto : 866603.1520553459
+boliglån : -205077.0422875251
+billån : -644335.5558197197
+sparekonto : -1014934.9825232344
+mnd 66
+brukskonto : 879564.2367020358
+boliglån : -159712.72795647403
+billån : -656919.2974853957
+sparekonto : -1031034.4954209679
+mnd 67
+brukskonto : 892530.7218006616
+boliglån : -114435.36189455746
+billån : -669455.8501198255
+sparekonto : -1047151.4494576739
+mnd 68
+brukskonto : 905502.609601412
+boliglån : -69244.77745092622
+billån : -681945.3906818761
+sparekonto : -1063285.8635279196
+mnd 69
+brukskonto : 918479.9023554126
+boliglån : -24140.808294145274
+billån : -694388.095466819
+sparekonto : -1079437.7565467416
+mnd 70
+brukskonto : 931462.6023147274
+boliglån : 20876.711588418504
+billån : -706784.1401088184
+sparekonto : -1095607.147449667
+mnd 71
+brukskonto : 944450.7117323586
+boliglån : 65807.94789120737
+billån : -719133.6995834103
+sparekonto : -1111794.0551927376
+mnd 72
+brukskonto : 957444.2328622472
+boliglån : 110653.06599108255
+billån : -731436.9482099725
+sparekonto : -1127998.4987525297
+mnd 73
+brukskonto : 970443.1679592732
+boliglån : 155412.23094793299
+billån : -743694.0596541851
+sparekonto : -1144220.4971261784
+mnd 74
+brukskonto : 983447.5192792563
+boliglån : 200085.60750528277
+billån : -755905.2069304818
+sparekonto : -1160460.0693313985
+mnd 75
+brukskonto : 996457.2890789561
+boliglån : 244673.36009089765
+billån : -768070.5624044925
+sparekonto : -1176717.2344065076
+mnd 76
+brukskonto : 1009472.4796160724
+boliglån : 289175.6528173901
+billån : -780190.2977954757
+sparekonto : -1192992.011410448
+mnd 77
+brukskonto : 1022493.0931492458
+boliglån : 333592.64948282344
+billån : -792264.5841787426
+sparekonto : -1209284.4194228093
+mnd 78
+brukskonto : 1035519.131938058
+boliglån : 377924.5135713147
+billån : -804293.5919880723
+sparekonto : -1225594.4775438507
+mnd 79
+brukskonto : 1048550.5982430321
+boliglån : 422171.4082536363
+billån : -816277.4910181169
+sparekonto : -1241922.2048945231
+mnd 80
+brukskonto : 1061587.4943256334
+boliglån : 466333.49638781685
+billån : -828216.450426799
+sparekonto : -1258267.6206164921
+mnd 81
+brukskonto : 1074629.8224482692
+boliglån : 510410.9405197402
+billån : -840110.6387376984
+sparekonto : -1274630.7438721599
+mnd 82
+brukskonto : 1087677.5848742893
+boliglån : 554403.9028837441
+billån : -851960.223842432
+sparekonto : -1291011.593844688
+mnd 83
+brukskonto : 1100730.783867987
+boliglån : 598312.545403217
+billån : -863765.3730030229
+sparekonto : -1307410.1897380198
+mnd 84
+brukskonto : 1113789.4216945989
+boliglån : 642137.0296911942
+billån : -875526.2528542615
+sparekonto : -1323826.5507769026
+mnd 85
+brukskonto : 1126853.500620305
+boliglån : 685877.5170509528
+billån : -887243.029406058
+sparekonto : -1340260.696206911
+mnd 86
+brukskonto : 1139923.0229122303
+boliglån : 729534.1684766051
+billån : -898915.8680457852
+sparekonto : -1356712.6452944684
+mnd 87
+brukskonto : 1152997.9908384439
+boliglån : 773107.1446536916
+billån : -910544.9335406135
+sparekonto : -1373182.4173268706
+mnd 88
+brukskonto : 1166078.4066679599
+boliglån : 816596.605959772
+billån : -922130.3900398362
+sparekonto : -1389670.031612308
+mnd 89
+brukskonto : 1179164.2726707382
+boliglån : 860002.7124650158
+billån : -933672.4010771868
+sparekonto : -1406175.507479888
+mnd 90
+brukskonto : 1192255.5911176845
+boliglån : 903325.6239327912
+billån : -945171.1295731473
+sparekonto : -1422698.8642796578
+mnd 91
+brukskonto : 1205352.3642806504
+boliglån : 946565.4998202533
+billån : -956626.7378372479
+sparekonto : -1439240.1213826274
+mnd 92
+brukskonto : 1218454.594432434
+boliglån : 989722.4992789312
+billån : -968039.3875703582
+sparekonto : -1455799.298180792
+mnd 93
+brukskonto : 1231562.283846781
+boliglån : 1032796.7811553132
+billån : -979409.2398669694
+sparekonto : -1472376.4140871544
+mnd 94
+brukskonto : 1244675.4347983839
+boliglån : 1075788.5039914323
+billån : -990736.4552174682
+sparekonto : -1488971.4885357488
+mnd 95
+brukskonto : 1257794.0495628833
+boliglån : 1118697.8260254487
+billån : -1002021.1935104027
+sparekonto : -1505584.5409816625
+mnd 96
+brukskonto : 1270918.130416868
+boliglån : 1161524.9051922334
+billån : -1013263.6140347386
+sparekonto : -1522215.5909010593
+mnd 97
+brukskonto : 1284047.6796378752
+boliglån : 1204269.8991239483
+billån : -1024463.8754821083
+sparekonto : -1538864.6577912022
+mnd 98
+brukskonto : 1297182.699504391
+boliglån : 1246932.9651506273
+billån : -1035622.1359490504
+sparekonto : -1555531.761170476
+mnd 99
+brukskonto : 1310323.1922958514
+boliglån : 1289514.2603007553
+billån : -1046738.5529392414
+sparekonto : -1572216.9205784106
+mnd 100
+brukskonto : 1323469.1602926415
+boliglån : 1332013.9413018455
+billån : -1057813.2833657193
+sparekonto : -1588920.1555757038
+mnd 101
+brukskonto : 1336620.605776097
+boliglån : 1374432.1645810169
+billån : -1068846.4835530978
+sparekonto : -1605641.4857442442
+mnd 102
+brukskonto : 1349777.5310285038
+boliglån : 1416769.08626557
+billån : -1079838.3092397738
+sparekonto : -1622380.9306871337
+mnd 103
+brukskonto : 1362939.938333099
+boliglån : 1459024.862183561
+billån : -1090788.9155801246
+sparekonto : -1639138.5100287113
+mnd 104
+brukskonto : 1376107.8299740711
+boliglån : 1501199.647864376
+billån : -1101698.457146699
+sparekonto : -1655914.2434145757
+mnd 105
+brukskonto : 1389281.2082365605
+boliglån : 1543293.5985393026
+billån : -1112567.087932399
+sparekonto : -1672708.1505116082
+mnd 106
+brukskonto : 1402460.0754066592
+boliglån : 1585306.8691421023
+billån : -1123394.9613526524
+sparekonto : -1689520.2510079958
+mnd 107
+brukskonto : 1415644.4337714121
+boliglån : 1627239.6143095798
+billån : -1134182.23024758
+sparekonto : -1706350.5646132545
+mnd 108
+brukskonto : 1428834.285618817
+boliglån : 1669091.9883821532
+billån : -1144929.0468841514
+sparekonto : -1723199.1110582522
+mnd 109
+brukskonto : 1442029.633237825
+boliglån : 1710864.1454044208
+billån : -1155635.5629583357
+sparekonto : -1740065.9100952318
+mnd 110
+brukskonto : 1455230.4789183408
+boliglån : 1752556.239125729
+billån : -1166301.929597242
+sparekonto : -1756950.981497835
+mnd 111
+brukskonto : 1468436.8249512236
+boliglån : 1794168.423000738
+billån : -1176928.2973612524
+sparekonto : -1773854.3450611243
+mnd 112
+brukskonto : 1481648.6736282867
+boliglån : 1835700.8501899866
+billån : -1187514.8162461477
+sparekonto : -1790776.0206016072
+mnd 113
+brukskonto : 1494866.0272422985
+boliglån : 1877153.673560456
+billån : -1198061.6356852246
+sparekonto : -1807716.027957259
+mnd 114
+brukskonto : 1508088.8880869828
+boliglån : 1918527.0456861316
+billån : -1208568.904551405
+sparekonto : -1824674.386987546
+mnd 115
+brukskonto : 1521317.2584570192
+boliglån : 1959821.1188485664
+billån : -1219036.7711593371
+sparekonto : -1841651.1175734492
+mnd 116
+brukskonto : 1534551.140648043
+boliglån : 2001036.04503744
+billån : -1229465.3832674895
+sparekonto : -1858646.239617487
+mnd 117
+brukskonto : 1547790.5369566465
+boliglån : 2042171.9759511182
+billån : -1239854.8880802363
+sparekonto : -1875659.7730437391
+mnd 118
+brukskonto : 1561035.4496803784
+boliglån : 2083229.062997212
+billån : -1250205.4322499353
+sparekonto : -1892691.7377978698
+mnd 119
+brukskonto : 1574285.8811177453
+boliglån : 2124207.4572931337
+billån : -1260517.1618789982
+sparekonto : -1909742.1538471507
+mnd 120
+brukskonto : 1587541.8335682112
+boliglån : 2165107.309666655
+billån : -1270790.222521952
+sparekonto : -1926811.0411804852
+mnd 121
+brukskonto : 1600803.309332198
+boliglån : 2205928.7706564604
+billån : -1281024.7591874946
+sparekonto : -1943898.4198084306
+mnd 122
+brukskonto : 1614070.3107110865
+boliglån : 2246671.990512702
+billån : -1291220.9163405416
+sparekonto : -1961004.309763223
+mnd 123
+brukskonto : 1627342.8400072162
+boliglån : 2287337.1191975526
+billån : -1301378.8379042645
+sparekonto : -1978128.7310987997
+mnd 124
+brukskonto : 1640620.899523886
+boliglån : 2327924.3063857574
+billån : -1311498.6672621234
+sparekonto : -1995271.7038908235
+mnd 125
+brukskonto : 1653904.4915653544
+boliglån : 2368433.701465185
+billån : -1321580.5472598905
+sparekonto : -2012433.2482367053
+mnd 126
+brukskonto : 1667193.6184368401
+boliglån : 2408865.4535373766
+billån : -1331624.620207666
+sparekonto : -2029613.3842556283
+mnd 127
+brukskonto : 1680488.2824445223
+boliglån : 2449219.7114180964
+billån : -1341631.0278818873
+sparekonto : -2046812.132088572
+mnd 128
+brukskonto : 1693788.4858955408
+boliglån : 2489496.6236378783
+billån : -1351599.91152733
+sparekonto : -2064029.5118983346
+mnd 129
+brukskonto : 1707094.2310979974
+boliglån : 2529696.3384425724
+billån : -1361531.4118591025
+sparekonto : -2081265.5438695578
+mnd 130
+brukskonto : 1720405.520360955
+boliglån : 2569819.0037938906
+billån : -1371425.6690646308
+sparekonto : -2098520.24820875
+mnd 131
+brukskonto : 1733722.355994439
+boliglån : 2609864.767369952
+billån : -1381282.8228056384
+sparekonto : -2115793.6451443094
+mnd 132
+brukskonto : 1747044.7403094368
+boliglån : 2649833.7765658265
+billån : -1391103.0122201173
+sparekonto : -2133085.754926549
+mnd 133
+brukskonto : 1760372.6756178993
+boliglån : 2689726.1784940753
+billån : -1400886.3759242918
+sparekonto : -2150396.597827719
+mnd 134
+brukskonto : 1773706.1642327402
+boliglån : 2729542.119985295
+billån : -1410633.0520145756
+sparekonto : -2167726.1941420324
+mnd 135
+brukskonto : 1787045.2084678372
+boliglån : 2769281.7475886564
+billån : -1420343.178069521
+sparekonto : -2185074.5641856864
+mnd 136
+brukskonto : 1800389.8106380322
+boliglån : 2808945.207572445
+billån : -1430016.8911517602
+sparekonto : -2202441.7282968876
+mnd 137
+brukskonto : 1813739.9730591315
+boliglån : 2848532.6459245975
+billån : -1439654.327809941
+sparekonto : -2219827.7068358758
+mnd 138
+brukskonto : 1827095.6980479064
+boliglån : 2888044.208353242
+billån : -1449255.6240806538
+sparekonto : -2237232.520184948
+mnd 139
+brukskonto : 1840456.9879220931
+boliglån : 2927480.0402872316
+billån : -1458820.9154903514
+sparekonto : -2254656.1887484817
+mnd 140
+brukskonto : 1853823.8450003942
+boliglån : 2966840.286876681
+billån : -1468350.3370572624
+sparekonto : -2272098.7329529594
+mnd 141
+brukskonto : 1867196.2716024779
+boliglån : 3006125.0929935006
+billån : -1477844.0232932977
+sparekonto : -2289560.173246992
+mnd 142
+brukskonto : 1880574.270048979
+boliglån : 3045334.6032319297
+billån : -1487302.1082059478
+sparekonto : -2307040.5301013426
+mnd 143
+brukskonto : 1893957.8426614995
+boliglån : 3084468.9619090683
+billån : -1496724.7253001754
+sparekonto : -2324539.8240089524
+mnd 144
+brukskonto : 1907346.9917626085
+boliglån : 3123528.313065409
+billån : -1506112.0075802996
+sparekonto : -2342058.075484962
+mnd 145
+brukskonto : 1920741.7196758431
+boliglån : 3162512.8004653673
+billån : -1515464.0875518734
+sparekonto : -2359595.3050667373
+mnd 146
+brukskonto : 1934142.0287257081
+boliglån : 3201422.567597809
+billån : -1524781.0972235538
+sparekonto : -2377151.533313893
+mnd 147
+brukskonto : 1947547.9212376773
+boliglån : 3240257.7576765795
+billån : -1534063.1681089655
+sparekonto : -2394726.780808316
+mnd 148
+brukskonto : 1960959.3995381931
+boliglån : 3279018.513641033
+billån : -1543310.431228557
+sparekonto : -2412321.0681541916
+mnd 149
+brukskonto : 1974376.4659546674
+boliglån : 3317704.978156554
+billån : -1552523.0171114497
+sparekonto : -2429934.415978025
+mnd 150
+brukskonto : 1987799.122815482
+boliglån : 3356317.2936150874
+billån : -1561701.0557972817
+sparekonto : -2447566.844928668
+mnd 151
+brukskonto : 2001227.3724499887
+boliglån : 3394855.6021356583
+billån : -1570844.6768380417
+sparekonto : -2465218.3756773407
+mnd 152
+brukskonto : 2014661.2171885096
+boliglån : 3433320.0455648983
+billån : -1579954.009299899
+sparekonto : -2482889.0289176577
+mnd 153
+brukskonto : 2028100.6593623383
+boliglån : 3471710.7654775656
+billån : -1589029.1817650243
+sparekonto : -2500578.825365652
+mnd 154
+brukskonto : 2041545.7013037393
+boliglån : 3510027.9031770667
+billån : -1598070.3223334055
+sparekonto : -2518287.785759798
+mnd 155
+brukskonto : 2054996.3453459493
+boliglån : 3548271.5996959773
+billån : -1607077.5586246552
+sparekonto : -2536015.9308610377
+mnd 156
+brukskonto : 2068452.5938231768
+boliglån : 3586441.99579656
+billån : -1616051.0177798127
+sparekonto : -2553763.281452804
+mnd 157
+brukskonto : 2081914.4490706034
+boliglån : 3624539.231971283
+billån : -1624990.8264631382
+sparekonto : -2571529.8583410443
+mnd 158
+brukskonto : 2095381.913424383
+boliglån : 3662563.448443338
+billån : -1633897.1108639014
+sparekonto : -2589315.682354247
+mnd 159
+brukskonto : 2108854.989221643
+boliglån : 3700514.785167155
+billån : -1642769.9966981618
+sparekonto : -2607120.774343464
+mnd 160
+brukskonto : 2122333.6788004856
+boliglån : 3738393.3818289177
+billån : -1651609.6092105436
+sparekonto : -2624945.155182336
+mnd 161
+brukskonto : 2135817.984499986
+boliglån : 3776199.3778470787
+billån : -1660416.073176004
+sparekonto : -2642788.8457671166
+mnd 162
+brukskonto : 2149307.9086601944
+boliglån : 3813932.912372872
+billån : -1669189.512901594
+sparekonto : -2660651.867016698
+mnd 163
+brukskonto : 2162803.4536221363
+boliglån : 3851594.124290824
+billån : -1677930.0522282128
+sparekonto : -2678534.2398726325
+mnd 164
+brukskonto : 2176304.621727812
+boliglån : 3889183.1522192666
+billån : -1686637.814532357
+sparekonto : -2696435.985299161
+mnd 165
+brukskonto : 2189811.415320199
+boliglån : 3926700.1345108463
+billån : -1695312.9227278607
+sparekonto : -2714357.124283235
+mnd 166
+brukskonto : 2203323.836743249
+boliglån : 3964145.2092530336
+billån : -1703955.4992676312
+sparekonto : -2732297.677834542
+mnd 167
+brukskonto : 2216841.888341892
+boliglån : 4001518.514268632
+billån : -1712565.6661453776
+sparekonto : -2750257.6669855295
+mnd 168
+brukskonto : 2230365.5724620344
+boliglån : 4038820.187116284
+billån : -1721143.5448973323
+sparekonto : -2768237.1127914307
+mnd 169
+brukskonto : 2243894.89145056
+boliglån : 4076050.365090978
+billån : -1729689.2566039672
+sparekonto : -2786236.036330288
+mnd 170
+brukskonto : 2257429.8476553313
+boliglån : 4113209.1852245536
+billån : -1738202.9218917023
+sparekonto : -2804254.458702979
+mnd 171
+brukskonto : 2270970.443425188
+boliglån : 4150296.7842862066
+billån : -1746684.6609346084
+sparekonto : -2822292.401033241
+mnd 172
+brukskonto : 2284516.6811099485
+boliglån : 4187313.2987829912
+billån : -1755134.5934561037
+sparekonto : -2840349.8844676935
+mnd 173
+brukskonto : 2298068.5630604113
+boliglån : 4224258.864960324
+billån : -1763552.8387306433
+sparekonto : -2858426.930175867
+mnd 174
+brukskonto : 2311626.091628353
+boliglån : 4261133.618802483
+billån : -1771939.5155854032
+sparekonto : -2876523.559350224
+mnd 175
+brukskonto : 2325189.269166532
+boliglån : 4297937.696033112
+billån : -1780294.742401958
+sparekonto : -2894639.793206187
+mnd 176
+brukskonto : 2338758.098028685
+boliglån : 4334671.232115715
+billån : -1788618.6371179505
+sparekonto : -2912775.6529821604
+mnd 177
+brukskonto : 2352332.5805695304
+boliglån : 4371334.3622541595
+billån : -1796911.317228758
+sparekonto : -2930931.159939558
+mnd 178
+brukskonto : 2365912.7191447676
+boliglån : 4407927.221393173
+billån : -1805172.89978915
+sparekonto : -2949106.3353628255
+mnd 179
+brukskonto : 2379498.516111078
+boliglån : 4444449.944218836
+billån : -1813403.5014149407
+sparekonto : -2967301.2005594685
+mnd 180
+brukskonto : 2393089.973826125
+boliglån : 4480902.665159083
+billån : -1821603.2382846347
+sparekonto : -2985515.7768600746
+mnd 181
+brukskonto : 2406687.0946485526
+boliglån : 4517285.518384195
+billån : -1829772.2261410672
+sparekonto : -3003750.0856183395
+mnd 182
+brukskonto : 2420289.88093799
+boliglån : 4553598.637807292
+billån : -1837910.5802930382
+sparekonto : -3022004.1482110927
+mnd 183
+brukskonto : 2433898.3350550476
+boliglån : 4589842.157084828
+billån : -1846018.4156169393
+sparekonto : -3040277.986038321
+mnd 184
+brukskonto : 2447512.459361321
+boliglån : 4626016.209617082
+billån : -1854095.8465583757
+sparekonto : -3058571.620523196
+mnd 185
+brukskonto : 2461132.256219388
+boliglån : 4662120.928548649
+billån : -1862142.987133782
+sparekonto : -3076885.073112096
+mnd 186
+brukskonto : 2474757.727992813
+boliglån : 4698156.446768931
+billån : -1870159.95093203
+sparekonto : -3095218.365274634
+mnd 187
+brukskonto : 2488388.8770461436
+boliglån : 4734122.896912624
+billån : -1878146.851116035
+sparekonto : -3113571.5185036818
+mnd 188
+brukskonto : 2502025.705744913
+boliglån : 4770020.411360208
+billån : -1886103.8004243497
+sparekonto : -3131944.5543153943
+mnd 189
+brukskonto : 2515668.2164556403
+boliglån : 4805849.122238434
+billån : -1894030.9111727583
+sparekonto : -3150337.494249236
+mnd 190
+brukskonto : 2529316.4115458303
+boliglån : 4841609.16142081
+billån : -1901928.2952558603
+sparekonto : -3168750.359868006
+mnd 191
+brukskonto : 2542970.2933839746
+boliglån : 4877300.660528087
+billån : -1909796.0641486507
+sparekonto : -3187183.1727578626
+mnd 192
+brukskonto : 2556629.8643395514
+boliglån : 4912923.750928742
+billån : -1917634.3289080933
+sparekonto : -3205635.9545283504
+mnd 193
+brukskonto : 2570295.1267830264
+boliglån : 4948478.563739462
+billån : -1925443.200174688
+sparekonto : -3224108.7268124227
+mnd 194
+brukskonto : 2583966.0830858527
+boliglån : 4983965.229825628
+billån : -1933222.7881740327
+sparekonto : -3242601.5112664695
+mnd 195
+brukskonto : 2597642.735620472
+boliglån : 5019383.879801796
+billån : -1940973.20271838
+sparekonto : -3261114.3295703414
+mnd 196
+brukskonto : 2611325.086760314
+boliglån : 5054734.644032176
+billån : -1948694.5532081858
+sparekonto : -3279647.2034273758
+mnd 197
+brukskonto : 2625013.138879798
+boliglån : 5090017.652631114
+billån : -1956386.948633655
+sparekonto : -3298200.154564422
+mnd 198
+brukskonto : 2638706.8943543313
+boliglån : 5125233.035463572
+billån : -1964050.4975762786
+sparekonto : -3316773.2047318667
+mnd 199
+brukskonto : 2652406.3555603125
+boliglån : 5160380.9221455995
+billån : -1971685.3082103676
+sparekonto : -3335366.3757036594
+mnd 200
+brukskonto : 2666111.5248751296
+boliglån : 5195461.442044821
+billån : -1979291.4883045787
+sparekonto : -3353979.6892773383
+mnd 201
+brukskonto : 2679822.404677161
+boliglån : 5230474.724280901
+billån : -1986869.1452234364
+sparekonto : -3372613.1672740555
+mnd 202
+brukskonto : 2693538.9973457768
+boliglån : 5265420.897726029
+billån : -1994418.3859288485
+sparekonto : -3391266.8315386022
+mnd 203
+brukskonto : 2707261.3052613377
+boliglån : 5300300.091005388
+billån : -2001939.3169816153
+sparekonto : -3409940.7039394355
+mnd 204
+brukskonto : 2720989.330805197
+boliglån : 5335112.432497627
+billån : -2009432.044542934
+sparekonto : -3428634.806368703
+mnd 205
+brukskonto : 2734723.076359699
+boliglån : 5369858.05033534
+billån : -2016896.674375898
+sparekonto : -3447349.160742269
+mnd 206
+brukskonto : 2748462.5443081823
+boliglån : 5404537.072405531
+billån : -2024333.3118469883
+sparekonto : -3466083.7889997396
+mnd 207
+brukskonto : 2762207.7370349774
+boliglån : 5439149.626350087
+billån : -2031742.061927562
+sparekonto : -3484838.7131044893
+mnd 208
+brukskonto : 2775958.6569254086
+boliglån : 5473695.839566249
+billån : -2039123.0291953336
+sparekonto : -3503613.9550436856
+mnd 209
+brukskonto : 2789715.3063657945
+boliglån : 5508175.839207081
+billån : -2046476.317835851
+sparekonto : -3522409.5368283163
+mnd 210
+brukskonto : 2803477.6877434473
+boliglån : 5542589.752181934
+billån : -2053802.0316439667
+sparekonto : -3541225.4804932135
+mnd 211
+brukskonto : 2817245.803446674
+boliglån : 5576937.705156919
+billån : -2061100.2740253017
+sparekonto : -3560061.8080970813
+mnd 212
+brukskonto : 2831019.6558647766
+boliglån : 5611219.824555368
+billån : -2068371.1479977067
+sparekonto : -3578918.54172252
+mnd 213
+brukskonto : 2844799.2473880537
+boliglån : 5645436.236558303
+billån : -2075614.7561927151
+sparekonto : -3597795.7034760523
+mnd 214
+brukskonto : 2858584.5804077988
+boliglån : 5679587.067104899
+billån : -2082831.2008569925
+sparekonto : -3616693.3154881513
+mnd 215
+brukskonto : 2872375.6573163024
+boliglån : 5713672.441892948
+billån : -2090020.5838537787
+sparekonto : -3635611.3999132635
+mnd 216
+brukskonto : 2886172.480506851
+boliglån : 5747692.48637932
+billån : -2097183.006664327
+sparekonto : -3654549.9789298363
+mnd 217
+brukskonto : 2899975.0523737287
+boliglån : 5781647.325780426
+billån : -2104318.5703893355
+sparekonto : -3673509.0747403437
+mnd 218
+brukskonto : 2913783.375312218
+boliglån : 5815537.08507268
+billån : -2111427.3757503754
+sparekonto : -3692488.709571312
+mnd 219
+brukskonto : 2927597.451718598
+boliglån : 5849361.888992958
+billån : -2118509.5230913116
+sparekonto : -3711488.905673348
+mnd 220
+brukskonto : 2941417.2839901475
+boliglån : 5883121.862039055
+billån : -2125565.112379719
+sparekonto : -3730509.6853211606
+mnd 221
+brukskonto : 2955242.8745251438
+boliglån : 5916817.128470146
+billån : -2132594.243208295
+sparekonto : -3749551.0708135916
+mnd 222
+brukskonto : 2969074.225722863
+boliglån : 5950447.812307245
+billån : -2139597.014796264
+sparekonto : -3768613.0844736397
+mnd 223
+brukskonto : 2982911.339983581
+boliglån : 5984014.037333656
+billån : -2146573.525990778
+sparekonto : -3787695.748648486
+mnd 224
+brukskonto : 2996754.2197085745
+boliglån : 6017515.927095433
+billån : -2153523.8752683126
+sparekonto : -3806799.085709522
+mnd 225
+brukskonto : 3010602.8673001197
+boliglån : 6050953.604901833
+billån : -2160448.1607360565
+sparekonto : -3825923.118052374
+mnd 226
+brukskonto : 3024457.2851614947
+boliglån : 6084327.193825771
+billån : -2167346.4801332965
+sparekonto : -3845067.868096931
+mnd 227
+brukskonto : 3038317.475696979
+boliglån : 6117636.816704271
+billån : -2174218.9308327967
+sparekonto : -3864233.3582873694
+mnd 228
+brukskonto : 3052183.441311853
+boliglån : 6150882.596138922
+billån : -2181065.6098421738
+sparekonto : -3883419.6110921805
+mnd 229
+brukskonto : 3066055.1844124
+boliglån : 6184064.654496321
+billån : -2187886.6138052656
+sparekonto : -3902626.6490041967
+mnd 230
+brukskonto : 3079932.7074059052
+boliglån : 6217183.113908537
+billån : -2194682.0390034956
+sparekonto : -3921854.494540618
+mnd 231
+brukskonto : 3093816.012700658
+boliglån : 6250238.096273545
+billån : -2201451.981357232
+sparekonto : -3941103.170243037
+mnd 232
+brukskonto : 3107705.10270595
+boliglån : 6283229.723255687
+billån : -2208196.5364271426
+sparekonto : -3960372.6986774667
+mnd 233
+brukskonto : 3121599.9798320774
+boliglån : 6316158.116286114
+billån : -2214915.799415541
+sparekonto : -3979663.1024343674
+mnd 234
+brukskonto : 3135500.646490341
+boliglån : 6349023.396563232
+billån : -2221609.8651677324
+sparekonto : -3998974.404128671
+mnd 235
+brukskonto : 3149407.1050930456
+boliglån : 6381825.685053152
+billån : -2228278.8281733533
+sparekonto : -4018306.6263998104
+mnd 236
+brukskonto : 3163319.358053501
+boliglån : 6414565.102490134
+billån : -2234922.782567703
+sparekonto : -4037659.7919117436
+mnd 237
+brukskonto : 3177237.407786024
+boliglån : 6447241.769377028
+billån : -2241541.822133074
+sparekonto : -4057033.9233529815
+mnd 238
+brukskonto : 3191161.2567059346
+boliglån : 6479855.805985722
+billån : -2248136.040300075
+sparekonto : -4076429.043436614
+mnd 239
+brukskonto : 3205090.9072295623
+boliglån : 6512407.332357583
+billån : -2254705.5301489495
+sparekonto : -4095845.1749003367
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dette ble en noe mer kronglete måte å gjøre tingene på. Hovedproblemet er at vi ikke kan hente listeelementer med navn. Derfor må vi hele tiden lete etter kontoen ved å søke gjennom listen over kontoer. Det vi nok egentlig trenger er å lage en klasse <code class="docutils literal notranslate"><span class="pre">Bankkunde</span></code> som holder på konto-objektene knyttet til en kunde, og som samtidig lar en hente ut kontoer med navnene på kontoene.</p>
+</section>
+</section>
+<section id="arv">
+<h2>Arv<a class="headerlink" href="#arv" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-5">
+<h3>Oppgave 5<a class="headerlink" href="#oppgave-5" title="Permalink to this headline">#</a></h3>
+<p><strong>Erratum. I oppgave 5 a) er k og l byttet om i eksempelet på slutten. Dessuten mangler argumentet <code class="docutils literal notranslate"><span class="pre">(x)</span></code> til <code class="docutils literal notranslate"><span class="pre">super().verdi(x)</span></code>. Oppgave 5a skal dermed lyde:</strong></p>
+<p>Lag en klasse FørstegradsPolynom(Konstant). La konstruktøren ta to argumenter, l og k, som er henholdsvis koeffisienten til første- gradsleddet og konstantleddet. Bruk super() for å kalle på konstruktøren til Konstant inni konstruktøren til FørstegradsPolynom. Lag en metode verdi, som bruker verdien fra Konstant sin verdi, altså <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">super().verdi(x)</span> <span class="pre">+</span> <span class="pre">l*x</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Konstant</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span> 
+    
+    <span class="k">def</span> <span class="nf">verdi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span> 
+<span class="c1"># a   </span>
+<span class="k">class</span> <span class="nc">FørstegradsPolynom</span><span class="p">(</span><span class="n">Konstant</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">l</span>
+        
+    <span class="k">def</span> <span class="nf">verdi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">x</span>
+<span class="c1"># b </span>
+<span class="k">class</span> <span class="nc">AndregradsPolynom</span><span class="p">(</span><span class="n">FørstegradsPolynom</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+        
+    <span class="k">def</span> <span class="nf">verdi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">AndregradsPolynom</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 2x**2 + 3x + 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 2*4**2 + 3*4 + 1 = 2*16+12+1 = 45</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6">
+<h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Permalink to this headline">#</a></h3>
+<p><strong>a)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AndregradsPolynom</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">koeffisienter</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span> <span class="o">=</span> <span class="n">koeffisienter</span>
+    
+    <span class="k">def</span> <span class="nf">verdi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">AndregradsPolynom</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># 2x**2 + 3x + 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 2*4**2 + 3*4 + 1 = 2*16+12+1 = 45   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>b)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Polynom</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">koeffisienter</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span> <span class="o">=</span> <span class="n">koeffisienter</span>
+    
+    <span class="k">def</span> <span class="nf">verdi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">summen</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">n_coeff</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_coeff</span><span class="p">):</span>
+            <span class="n">summen</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="n">n_coeff</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">summen</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Polynom</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># 2x**2 + 3x + 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 2*4**2 + 3*4 + 1 = 2*16+12+1 = 45            </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>45
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>c)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TredjegradsPolynom</span><span class="p">(</span><span class="n">Polynom</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">koeffisienter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">koeffisienter</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feil antall koeffisienter i tredjegradspolynom&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">koeffisienter</span> <span class="o">=</span> <span class="n">koeffisienter</span>
+            
+<span class="n">a</span> <span class="o">=</span> <span class="n">TredjegradsPolynom</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># 2x**2 + 3x + 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">verdi</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 1*4**4 + 2*4**2 + 3*4 + 1 = 2*16+12+1 = 109                    </span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">TredjegradsPolynom</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1"># 2x**2 + 3x + 1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109
+Feil antall koeffisienter i tredjegradspolynom
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nar-er-klasser-nyttig">
+<h2>Når er klasser nyttig?<a class="headerlink" href="#nar-er-klasser-nyttig" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-7">
+<h3>Oppgave 7<a class="headerlink" href="#oppgave-7" title="Permalink to this headline">#</a></h3>
+<p>a)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="k">def</span> <span class="nf">akselerasjon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span>
+    
+<span class="n">ball</span> <span class="o">=</span> <span class="n">Ball</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ball</span><span class="o">.</span><span class="n">akselerasjon</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vi ser at akselerasjonen er uavhengig av massen, så dette programmet stemmer. La oss utvide det:</p>
+<p>b), c), d)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">Ball</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">=</span> <span class="n">m</span>
+        
+    <span class="k">def</span> <span class="nf">akselerasjon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+    
+    <span class="k">def</span> <span class="nf">sett_initalbetingelse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">v</span>
+        
+    <span class="k">def</span> <span class="nf">integrer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">*</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span>
+    
+    <span class="k">def</span> <span class="nf">plott_posisjon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tid&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Posisjon&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="n">ball</span> <span class="o">=</span> <span class="n">Ball</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ball</span><span class="o">.</span><span class="n">sett_initalbetingelse</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ball</span><span class="o">.</span><span class="n">akselerasjon</span><span class="p">()</span>
+<span class="n">ball</span><span class="o">.</span><span class="n">integrer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">1E-5</span><span class="p">)</span>
+<span class="n">ball</span><span class="o">.</span><span class="n">plott_posisjon</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/kap15_29_0.png" src="../_images/kap15_29_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./losningsforslag"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="kap13.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">13. Dynamiske systemer</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Andreas Haraldsrud, Henrik Andersen Sveinsson, Henrik Hillestad Løvold<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,2977 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Kontrollstrukturer og funksjoner &#8212; Programmering i skolen</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pis.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://programmering-i-skolen.github.io/programmeringiskolen/losningsforslag/kap3.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Datastrukturer" href="kap4.html" />
+    <link rel="prev" title="2. Tall og variabler" href="kap2.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/programmering_i_skolen_forside.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Programmering i skolen</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Om programmering i skolen
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Ressurser
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasett/oversikt.html">
+   Datasett
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installasjon/anaconda.html">
+   Installasjon av
+   <em>
+    Anaconda
+   </em>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Løsningsforslag
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap2.html">
+   2. Tall og variabler
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Kontrollstrukturer og funksjoner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap4.html">
+   4. Datastrukturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap5.html">
+   5. Blokkprogrammering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap6.html">
+   6. Plotting og grafikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap7.html">
+   7. Data og statistikk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap12.html">
+   12. Derivasjon og integrasjon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap13.html">
+   13. Dynamiske systemer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="kap15.html">
+   15. Objektorientert programmering
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/programmering-i-skolen/nettinnhold/master?urlpath=tree/losningsforslag/kap3.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/programmering-i-skolen/nettinnhold//issues/new?title=Issue%20on%20page%20%2Flosningsforslag/kap3.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/losningsforslag/kap3.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-1">
+     Underveisoppgave 3.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-2">
+     Underveisoppgave 3.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-3">
+     Underveisoppgave 3.3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-4-definere-en-funksjon">
+     Underveisoppgave 3.4: Definere en funksjon
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vilkar">
+   Vilkår
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-8">
+     Oppgave 8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-9">
+     Oppgave 9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-10">
+     Oppgave 10
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-11">
+     Oppgave 11
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-12">
+     Oppgave 12
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-13">
+     Oppgave 13
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lokker">
+   Løkker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-14">
+     Oppgave 14
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-15">
+     Oppgave 15
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-16">
+     Oppgave 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-17">
+     Oppgave 17
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-18">
+     Oppgave 18
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-19">
+     Oppgave 19
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-20">
+     Oppgave 20
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-21">
+     Oppgave 21
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-22">
+     Oppgave 22
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-23">
+     Oppgave 23
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-24">
+     Oppgave 24
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-25">
+     Oppgave 25
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funksjoner">
+   Funksjoner
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-26">
+     Oppgave 26
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-27">
+     Oppgave 27
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-28">
+     Oppgave 28
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-29">
+     Oppgave 29
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-30">
+     Oppgave 30
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-31">
+     Oppgave 31
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-32">
+     Oppgave 32
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-33">
+     Oppgave 33
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-34">
+     Oppgave 34
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-35">
+     Oppgave 35
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>3. Kontrollstrukturer og funksjoner</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#underveisoppgaver">
+   Underveisoppgaver
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-1">
+     Underveisoppgave 3.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-2">
+     Underveisoppgave 3.2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-3">
+     Underveisoppgave 3.3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#underveisoppgave-3-4-definere-en-funksjon">
+     Underveisoppgave 3.4: Definere en funksjon
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vilkar">
+   Vilkår
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-1">
+     Oppgave 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-2">
+     Oppgave 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-3">
+     Oppgave 3
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-4">
+     Oppgave 4
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-5">
+     Oppgave 5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-6">
+     Oppgave 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-7">
+     Oppgave 7
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-8">
+     Oppgave 8
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-9">
+     Oppgave 9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-10">
+     Oppgave 10
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-11">
+     Oppgave 11
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-12">
+     Oppgave 12
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-13">
+     Oppgave 13
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lokker">
+   Løkker
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-14">
+     Oppgave 14
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-15">
+     Oppgave 15
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-16">
+     Oppgave 16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-17">
+     Oppgave 17
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-18">
+     Oppgave 18
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-19">
+     Oppgave 19
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-20">
+     Oppgave 20
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-21">
+     Oppgave 21
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-22">
+     Oppgave 22
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-23">
+     Oppgave 23
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-24">
+     Oppgave 24
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-25">
+     Oppgave 25
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funksjoner">
+   Funksjoner
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-26">
+     Oppgave 26
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-27">
+     Oppgave 27
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-28">
+     Oppgave 28
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-29">
+     Oppgave 29
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-30">
+     Oppgave 30
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-31">
+     Oppgave 31
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-32">
+     Oppgave 32
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-33">
+     Oppgave 33
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-34">
+     Oppgave 34
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oppgave-35">
+     Oppgave 35
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="kontrollstrukturer-og-funksjoner">
+<h1>3. Kontrollstrukturer og funksjoner<a class="headerlink" href="#kontrollstrukturer-og-funksjoner" title="Permalink to this headline">#</a></h1>
+<section id="underveisoppgaver">
+<h2>Underveisoppgaver<a class="headerlink" href="#underveisoppgaver" title="Permalink to this headline">#</a></h2>
+<section id="underveisoppgave-3-1">
+<h3>Underveisoppgave 3.1<a class="headerlink" href="#underveisoppgave-3-1" title="Permalink to this headline">#</a></h3>
+<p>For eksempel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hvor gammel er du?&quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er et barn&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er bare ungdommen&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">alder</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er i din beste alder&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jamen, du er jo bare ungdommen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hvor gammel er du? 29
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er bare ungdommen
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="underveisoppgave-3-2">
+<h3>Underveisoppgave 3.2<a class="headerlink" href="#underveisoppgave-3-2" title="Permalink to this headline">#</a></h3>
+<p>Én fordel er at vi får tydeliggjort at det er tre ulike muligheter for antallet løsninger, og at det er rotuttrykket som avgjør det.</p>
+</section>
+<section id="underveisoppgave-3-3">
+<h3>Underveisoppgave 3.3<a class="headerlink" href="#underveisoppgave-3-3" title="Permalink to this headline">#</a></h3>
+<p>Mengden kommentarer vi komme litt an på hva som er hensikten med kommentarene. Under har vi et forslag der vi prøver å forklare de matematiske delene av koden, men vi antar at leseren forstår hva enkle kodeuttrykk gjør.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">startsum</span> <span class="o">=</span> <span class="mi">7500</span> 
+<span class="n">saldo</span> <span class="o">=</span> <span class="n">startsum</span> <span class="c1"># Setter saldoen i begynnelsen til startsummen. </span>
+<span class="n">sluttsum</span> <span class="o">=</span> <span class="mi">10000</span> 
+<span class="n">rente</span> <span class="o">=</span> <span class="mf">0.012</span> <span class="c1"># 0.012 er det samme som 1.2 % </span>
+<span class="n">tid</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Vi setter tiden vi starter ved til 0. </span>
+
+<span class="k">while</span> <span class="n">saldo</span> <span class="o">&lt;=</span> <span class="n">sluttsum</span><span class="p">:</span>
+    <span class="c1"># Vi legger til på saldoen så lenge den er for liten. </span>
+    <span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span> <span class="o">+</span> <span class="n">saldo</span><span class="o">*</span><span class="n">rente</span>
+    <span class="n">tid</span> <span class="o">=</span> <span class="n">tid</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">saldo</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Det tar&quot;</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="s2">&quot;før du har&quot;</span><span class="p">,</span> <span class="n">sluttsum</span><span class="p">,</span>
+<span class="s2">&quot;kr i banken dersom renta er:&quot;</span><span class="p">,</span> <span class="n">rente</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;%.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7590.0
+7681.08
+7773.25296
+7866.53199552
+7960.93037946624
+8056.461544019835
+8153.139082548073
+8250.97675153865
+8349.988472557114
+8450.1883342278
+8551.590594238533
+8654.209681369395
+8758.060197545828
+8863.156919916379
+8969.514802955375
+9077.148980590839
+9186.074768357928
+9296.307665578224
+9407.863357565164
+9520.757717855946
+9635.006810470217
+9750.62689219586
+9867.63441490221
+9986.046027881037
+10105.878580215609
+Det tar 25 før du har 10000 kr i banken dersom renta er: 1.2 %.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="underveisoppgave-3-4-definere-en-funksjon">
+<h3>Underveisoppgave 3.4: Definere en funksjon<a class="headerlink" href="#underveisoppgave-3-4-definere-en-funksjon" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_sum</span><span class="p">(</span><span class="n">liste</span><span class="p">):</span>
+    <span class="n">summen</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span> 
+        <span class="n">summen</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="n">summen</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="vilkar">
+<h2>Vilkår<a class="headerlink" href="#vilkar" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-1">
+<h3>Oppgave 1<a class="headerlink" href="#oppgave-1" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a er større enn b&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a er mindre enn b&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a og b er like store&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a er mindre enn b
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-2">
+<h3>Oppgave 2<a class="headerlink" href="#oppgave-2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alder</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast din alder: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">alder</span> <span class="o">&gt;</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er godt voksen!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er ung og frisk!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast din alder:  20
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er ung og frisk!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-3">
+<h3>Oppgave 3<a class="headerlink" href="#oppgave-3" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn første tall: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn andre tall: &quot;</span><span class="p">))</span>
+<span class="n">operasjon</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast regneoperasjon: &quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">operasjon</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">operasjon</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">operasjon</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">operasjon</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ukjent regneoperasjon&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn første tall:  3
+Tast inn andre tall:  4
+Tast regneoperasjon:  *
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-4">
+<h3>Oppgave 4<a class="headerlink" href="#oppgave-4" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn startverdi: &quot;</span><span class="p">))</span>
+<span class="n">slutt</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn sluttverdi: &quot;</span><span class="p">))</span>
+
+<span class="n">endring</span> <span class="o">=</span> <span class="n">slutt</span><span class="o">/</span><span class="n">start</span>
+
+<span class="k">if</span> <span class="n">endring</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Økning på&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">endring</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;prosent&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nedgang på&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">endring</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;prosent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn startverdi:  4
+Tast inn sluttverdi:  3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nedgang på 25.0 prosent
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-5">
+<h3>Oppgave 5<a class="headerlink" href="#oppgave-5" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast ditt tall: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 er en faktor i tallet&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 er ikke en faktor i tallet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast ditt tall:  9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 er en faktor i tallet
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-6">
+<h3>Oppgave 6<a class="headerlink" href="#oppgave-6" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast ditt tall: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dette er et partall&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast ditt tall:  6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dette er et partall
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-7">
+<h3>Oppgave 7<a class="headerlink" href="#oppgave-7" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast ditt tall: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">tall</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dette er et partall&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dette er et oddetall&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast ditt tall:  5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dette er et oddetall
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-8">
+<h3>Oppgave 8<a class="headerlink" href="#oppgave-8" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn verdi for a: &quot;</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn verdi for b: &quot;</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn verdi for c: &quot;</span><span class="p">))</span>
+
+<span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span>
+
+<span class="k">if</span> <span class="n">x1</span> <span class="o">==</span> <span class="n">x2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Én reell løsning:&quot;</span><span class="p">,</span> <span class="n">x1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;To reelle løsninger, x1 =&quot;</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s2">&quot;og x2 =&quot;</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+
+<span class="c1"># Her tar vi ikke høyde for ingen reelle løsninger</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn verdi for a:  5
+Tast inn verdi for b:  4
+Tast inn verdi for c:  2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To reelle løsninger, x1 = 11.811388300841898 og x2 = -19.811388300841898
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-9">
+<h3>Oppgave 9<a class="headerlink" href="#oppgave-9" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast a for trekant 1: &quot;</span><span class="p">))</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast b for trekant 1: &quot;</span><span class="p">))</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast c for trekant 1: &quot;</span><span class="p">))</span>
+
+<span class="n">a2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast a for trekant 2: &quot;</span><span class="p">))</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast b for trekant 2: &quot;</span><span class="p">))</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast c for trekant 2: &quot;</span><span class="p">))</span>
+
+<span class="n">forhold_a</span> <span class="o">=</span> <span class="n">a1</span><span class="o">/</span><span class="n">a2</span>
+<span class="n">forhold_b</span> <span class="o">=</span> <span class="n">b1</span><span class="o">/</span><span class="n">b2</span>
+<span class="n">forhold_c</span> <span class="o">=</span> <span class="n">c1</span><span class="o">/</span><span class="n">c2</span>
+
+<span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-9</span>
+
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">forhold_a</span><span class="o">/</span><span class="n">forhold_b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">forhold_b</span><span class="o">/</span><span class="n">forhold_c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trekantene er formlike&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trekantene er ikke formlike&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast a for trekant 1:  2.00000000000000000001
+Tast b for trekant 1:  4
+Tast c for trekant 1:  6
+Tast a for trekant 2:  4
+Tast b for trekant 2:  8
+Tast c for trekant 2:  12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trekantene er formlike
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merk at vi tester for om trekantene er nesten formlike. Det kan hende vi får en liten avrundingsfeil, og de vil det gå galt om vi tester for <code class="docutils literal notranslate"><span class="pre">forhold_a</span> <span class="pre">==</span> <span class="pre">forhold_b</span></code>og <code class="docutils literal notranslate"><span class="pre">forhold_b</span> <span class="pre">==</span> <span class="pre">forhold_c</span></code>, som nok er det mest intuitive å gjøre her.</p>
+</section>
+<section id="oppgave-10">
+<h3>Oppgave 10<a class="headerlink" href="#oppgave-10" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-11">
+<h3>Oppgave 11<a class="headerlink" href="#oppgave-11" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-12">
+<h3>Oppgave 12<a class="headerlink" href="#oppgave-12" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-13">
+<h3>Oppgave 13<a class="headerlink" href="#oppgave-13" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+</section>
+<section id="lokker">
+<h2>Løkker<a class="headerlink" href="#lokker" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-14">
+<h3>Oppgave 14<a class="headerlink" href="#oppgave-14" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du er god til å lage løkker!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+Du er god til å lage løkker!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-15">
+<h3>Oppgave 15<a class="headerlink" href="#oppgave-15" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># While-løkke:</span>
+<span class="n">tall</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">tall</span> <span class="o">&lt;</span> <span class="mi">101</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tall</span><span class="p">)</span>
+    <span class="n">tall</span> <span class="o">=</span> <span class="n">tall</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="c1"># For-løkke</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+74
+76
+78
+80
+82
+84
+86
+88
+90
+92
+94
+96
+98
+100
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+26
+28
+30
+32
+34
+36
+38
+40
+42
+44
+46
+48
+50
+52
+54
+56
+58
+60
+62
+64
+66
+68
+70
+72
+74
+76
+78
+80
+82
+84
+86
+88
+90
+92
+94
+96
+98
+100
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-16">
+<h3>Oppgave 16<a class="headerlink" href="#oppgave-16" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oddetall</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">oddetall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">oddetall</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+27
+29
+31
+33
+35
+37
+39
+41
+43
+45
+47
+49
+51
+53
+55
+57
+59
+61
+63
+65
+67
+69
+71
+73
+75
+77
+79
+81
+83
+85
+87
+89
+91
+93
+95
+97
+99
+[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-17">
+<h3>Oppgave 17<a class="headerlink" href="#oppgave-17" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summen</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="n">summen</span> <span class="o">=</span> <span class="n">summen</span> <span class="o">+</span> <span class="n">i</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summen av de første 999 tallene er&quot;</span><span class="p">,</span> <span class="n">summen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen av de første 999 tallene er 499500
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-18">
+<h3>Oppgave 18<a class="headerlink" href="#oppgave-18" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+121
+144
+169
+196
+225
+256
+289
+324
+361
+400
+441
+484
+529
+576
+625
+676
+729
+784
+841
+900
+961
+1024
+1089
+1156
+1225
+1296
+1369
+1444
+1521
+1600
+1681
+1764
+1849
+1936
+2025
+2116
+2209
+2304
+2401
+2500
+2601
+2704
+2809
+2916
+3025
+3136
+3249
+3364
+3481
+3600
+3721
+3844
+3969
+4096
+4225
+4356
+4489
+4624
+4761
+4900
+5041
+5184
+5329
+5476
+5625
+5776
+5929
+6084
+6241
+6400
+6561
+6724
+6889
+7056
+7225
+7396
+7569
+7744
+7921
+8100
+8281
+8464
+8649
+8836
+9025
+9216
+9409
+9604
+9801
+10000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-19">
+<h3>Oppgave 19<a class="headerlink" href="#oppgave-19" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summen</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tall</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">summen</span> <span class="o">+=</span> <span class="n">tall</span>
+    <span class="n">tall</span> <span class="o">=</span> <span class="n">tall</span> <span class="o">+</span> <span class="mi">4</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summen av de første 100 tall i følgen er&quot;</span><span class="p">,</span> <span class="n">summen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen av de første 100 tall i følgen er 19900
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-20">
+<h3>Oppgave 20<a class="headerlink" href="#oppgave-20" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn startbeløp: &quot;</span><span class="p">))</span>
+<span class="n">tid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn antall tidsenheter: &quot;</span><span class="p">))</span>
+<span class="n">rente</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn rente i prosent: &quot;</span><span class="p">))</span>
+<span class="n">rente</span> <span class="o">=</span> <span class="n">rente</span><span class="o">/</span><span class="mi">100</span>
+
+<span class="n">saldo</span> <span class="o">=</span> <span class="n">start</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tid</span><span class="p">):</span>
+    <span class="n">saldo</span> <span class="o">=</span> <span class="n">saldo</span> <span class="o">+</span> <span class="n">saldo</span><span class="o">*</span><span class="n">rente</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saldo etter&quot;</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="s2">&quot;tidsenheter, er&quot;</span><span class="p">,</span> <span class="n">saldo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn startbeløp:  100
+Tast inn antall tidsenheter:  300
+Tast inn rente i prosent:  1.25
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saldo etter 300 tidsenheter, er 4154.41201880097
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-21">
+<h3>Oppgave 21<a class="headerlink" href="#oppgave-21" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N0</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast antall harer ved tid=0: &quot;</span><span class="p">))</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">N0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">utvikling</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">*</span> <span class="n">k</span>
+    <span class="n">utvikling</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Utvikling:&quot;</span><span class="p">,</span> <span class="n">utvikling</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast antall harer ved tid=0:  100
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Utvikling: [110.00000000000001, 121.00000000000003, 133.10000000000005, 146.41000000000008, 161.0510000000001, 177.15610000000012, 194.87171000000015, 214.3588810000002, 235.79476910000022, 259.37424601000026]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-22">
+<h3>Oppgave 22<a class="headerlink" href="#oppgave-22" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N0</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast antall harer ved tid=0: &quot;</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn bæreevne i antall harer: &quot;</span><span class="p">))</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">N0</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">utvikling</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="n">N</span> <span class="o">+</span> <span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">N</span><span class="o">*</span><span class="p">(</span><span class="n">B</span><span class="o">-</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="n">B</span> 
+    <span class="n">utvikling</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Utvikling:&quot;</span><span class="p">,</span> <span class="n">utvikling</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast antall harer ved tid=0:  100
+Tast inn bæreevne i antall harer:  200
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Utvikling: [105.0, 109.98750000000001, 114.93762492187501, 119.8260586027217, 124.62952230286243, 129.32621561842882, 133.89620215717954, 138.32172589683935, 142.5874485589831, 146.6806031716011]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-23">
+<h3>Oppgave 23<a class="headerlink" href="#oppgave-23" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast tall som skal primtallsfaktoriseres: &quot;</span><span class="p">))</span>
+<span class="n">faktorer</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">while</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">tall</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">faktorer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">tall</span> <span class="o">=</span> <span class="n">tall</span><span class="o">/</span><span class="n">i</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Primfaktorer:&quot;</span><span class="p">,</span> <span class="n">faktorer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast tall som skal primtallsfaktoriseres:  465
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Primfaktorer: [3, 5, 31]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-24">
+<h3>Oppgave 24<a class="headerlink" href="#oppgave-24" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-25">
+<h3>Oppgave 25<a class="headerlink" href="#oppgave-25" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+</section>
+<section id="funksjoner">
+<h2>Funksjoner<a class="headerlink" href="#funksjoner" title="Permalink to this headline">#</a></h2>
+<section id="oppgave-26">
+<h3>Oppgave 26<a class="headerlink" href="#oppgave-26" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hei</span><span class="p">(</span><span class="n">navn</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei,&quot;</span><span class="p">,</span> <span class="n">navn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-27">
+<h3>Oppgave 27<a class="headerlink" href="#oppgave-27" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+7
+16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-28">
+<h3>Oppgave 28<a class="headerlink" href="#oppgave-28" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">areal</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast radius: &quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arealet av sirkelen er&quot;</span><span class="p">,</span> <span class="n">areal</span><span class="p">(</span><span class="n">radius</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast radius:  4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arealet av sirkelen er 50.26548245743669
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-29">
+<h3>Oppgave 29<a class="headerlink" href="#oppgave-29" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="k">def</span> <span class="nf">radius_sirkel</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">/</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">areal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Tast inn omkrest: &quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radius i sirkelen er&quot;</span><span class="p">,</span> <span class="n">radius_sirkel</span><span class="p">(</span><span class="n">areal</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tast inn omkrest:  56
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Radius i sirkelen er 8.91267681314614
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-30">
+<h3>Oppgave 30<a class="headerlink" href="#oppgave-30" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2
+-3
+-2
+7
+30
+73
+142
+243
+382
+565
+798
+1087
+1438
+1857
+2350
+2923
+3582
+4333
+5182
+6135
+7198
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-31">
+<h3>Oppgave 31<a class="headerlink" href="#oppgave-31" title="Permalink to this headline">#</a></h3>
+<p>Når vi definerer funksjonen lager vi den koden som bestemmer hva funksjonen skal gjøre. Når vi kaller på en funksjon ber vi Python om å faktisk kjøre koden i funksjonen. Vi burde definitivt <em>kalle på</em> funksjonen inne i løkka. Om vi definerer den inne i løkka ender vi bare med å definere den mange ganger. Koden under blir derfor litt underlig:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-32">
+<h3>Oppgave 32<a class="headerlink" href="#oppgave-32" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x    f(x)&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x    f(x)
+0     -1
+1     -1
+2     -3
+3     -7
+4     -13
+5     -21
+6     -31
+7     -43
+8     -57
+9     -73
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="oppgave-33">
+<h3>Oppgave 33<a class="headerlink" href="#oppgave-33" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-34">
+<h3>Oppgave 34<a class="headerlink" href="#oppgave-34" title="Permalink to this headline">#</a></h3>
+<p><em>Kommer</em></p>
+</section>
+<section id="oppgave-35">
+<h3>Oppgave 35<a class="headerlink" href="#oppgave-35" title="Permalink to this headline">#</a></h3>
+<p>a)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minste_faktor</span><span class="p">(</span><span class="n">tall</span><span class="p">):</span>
+    <span class="n">teller</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="n">tall</span> <span class="o">%</span> <span class="n">teller</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">teller</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">teller</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>b)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">primtallsfaktorer</span><span class="p">(</span><span class="n">tall</span><span class="p">):</span>
+    <span class="n">faktorer</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">tall</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">faktorer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">minste_faktor</span><span class="p">(</span><span class="n">tall</span><span class="p">))</span>
+        <span class="n">tall</span> <span class="o">=</span> <span class="n">tall</span><span class="o">/</span><span class="n">faktorer</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">faktorer</span>
+        
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./losningsforslag"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="kap2.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2. Tall og variabler</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="kap4.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Datastrukturer</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Andreas Haraldsrud, Henrik Andersen Sveinsson, Henrik Hillestad Løvold<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
