@@ -1,11 +1,11 @@
-- file: intro
-
-- part: Ressurser
-  chapters: 
+format: jb-book
+root: intro
+parts:
+- caption: Ressurser
+  chapters:
   - file: datasett/oversikt
   - file: installasjon/anaconda
-
-- part: Løsningsforslag
+- caption: "Løsningsforslag"
   chapters:
   - file: losningsforslag/kap2
   - file: losningsforslag/kap3
@@ -16,5 +16,3 @@
   - file: losningsforslag/kap12
   - file: losningsforslag/kap13
   - file: losningsforslag/kap15
-
-
